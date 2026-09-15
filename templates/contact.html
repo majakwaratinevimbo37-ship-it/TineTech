@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#020508">
+    <meta name="description" content="Contact TineTech.">
+
+    <title>CONTACT — T!NΞ</title>
+
+    <link rel="icon"
+          type="image/svg+xml"
+          href="{{ url_for('static', filename='favicon.svg') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="v5-page v5-contact-page">
+
+<div class="v5-world">
+    <div class="v5-sky"></div>
+    <div class="v5-stars v5-stars-one"></div>
+    <div class="v5-stars v5-stars-two"></div>
+    <div class="v5-stars v5-stars-three"></div>
+    <div class="v5-nebula v5-nebula-one"></div>
+    <div class="v5-nebula v5-nebula-two"></div>
+    <div class="v5-grid"></div>
+    <div class="v5-light v5-light-one"></div>
+    <div class="v5-light v5-light-two"></div>
+    <div class="v5-vignette"></div>
+    <div class="v5-noise"></div>
+</div>
+
+<div class="v5-cursor">
+    <div class="v5-cursor-dot"></div>
+    <div class="v5-cursor-ring"></div>
+    <span>MOVE</span>
+</div>
+
+<header class="v5-navigation">
+
+    <a href="/" class="v5-brand">
+        T<span>!</span>NΞ
+    </a>
+
+    <div class="v5-status">
+        <i></i>
+        <span>COMMS ONLINE</span>
+    </div>
+
+    <nav class="v5-nav-links">
+
+        <a href="/">
+            <small>01</small>
+            HOME
+        </a>
+
+        <a href="/about">
+            <small>02</small>
+            ABOUT
+        </a>
+
+        <a href="/lab">
+            <small>03</small>
+            LAB
+        </a>
+
+        <a href="/system">
+            <small>04</small>
+            SYSTEM
+        </a>
+
+        <a href="/contact" class="active">
+            <small>05</small>
+            CONTACT
+        </a>
+
+    </nav>
+
+    <button
+        class="v5-menu"
+        id="v5-menu"
+        aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+<div class="v5-hud">
+
+    <div class="v5-hud-location">
+        <span>LOCATION</span>
+        <strong>17°49′ S</strong>
+        <strong>31°03′ E</strong>
+    </div>
+
+    <div class="v5-hud-state">
+        <span>STATE</span>
+        <strong id="v5-state">COMMUNICATION</strong>
+        <small id="v5-state-number">01 / 05</small>
+    </div>
+
+    <div class="v5-hud-top">
+        <span>T!NΞ / COMMS</span>
+        <div></div>
+        <span>SECURE CHANNEL</span>
+    </div>
+
+    <div class="v5-hud-progress">
+        <span id="v5-progress-text">000%</span>
+
+        <div>
+            <i id="v5-progress-bar"></i>
+        </div>
+    </div>
+
+</div>
+
+
+<main class="v5-main v5-inner-main">
+
+<section
+    class="v5-scene v5-contact-hero"
+    data-state="COMMUNICATION">
+
+    <div class="v5-scene-number">01</div>
+
+    <div class="v5-scene-label">
+        TINETECH / COMMUNICATION TERMINAL
+    </div>
+
+    <div class="v5-contact-hero-copy">
+
+        <div class="v5-kicker">
+            <i></i>
+            OPEN COMMUNICATION CHANNEL
+        </div>
+
+        <h1>
+            <span>MAKE</span>
+            <span>CONTACT</span>
+            <span class="v5-accent">DIRECTLY.</span>
+        </h1>
+
+        <p>
+            Send a message directly to the TineTech
+            owner. No mail app. No redirect.
+            Just send the transmission.
+        </p>
+
+    </div>
+
+
+    <div class="v5-contact-signal">
+
+        <div class="signal-ring signal-ring-one"></div>
+        <div class="signal-ring signal-ring-two"></div>
+        <div class="signal-ring signal-ring-three"></div>
+
+        <div class="signal-core">
+            <span>TX</span>
+            <small>READY</small>
+        </div>
+
+        <div class="signal-line"></div>
+
+    </div>
+
+</section>
+
+
+<section
+    class="v5-scene v5-contact-terminal"
+    data-state="TRANSMISSION">
+
+    <div class="v5-scene-number">02</div>
+
+    <div class="v5-contact-terminal-copy">
+
+        <span>02 / TRANSMISSION</span>
+
+        <h2>
+            SEND THE<br>
+            <em>MESSAGE.</em>
+        </h2>
+
+        <p>
+            The transmission is routed through
+            the TineTech server and delivered
+            directly to the owner inbox.
+        </p>
+
+    </div>
+
+
+    <form
+        class="v5-contact-form"
+        id="tine-contact-form"
+        method="POST"
+        action="/contact/send">
+
+        <div class="contact-form-header">
+
+            <span>T!NΞ_COMMS_TERMINAL</span>
+
+            <div class="contact-live">
+                <i></i>
+                READY
+            </div>
+
+        </div>
+
+
+        <label>
+            <span>YOUR NAME</span>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="ENTER IDENTIFIER"
+                maxlength="80"
+                required>
+        </label>
+
+
+        <label>
+            <span>YOUR EMAIL</span>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="ENTER RETURN CHANNEL"
+                maxlength="160"
+                required>
+        </label>
+
+
+        <label>
+            <span>SUBJECT</span>
+
+            <input
+                type="text"
+                name="subject"
+                placeholder="TRANSMISSION SUBJECT"
+                maxlength="160"
+                required>
+        </label>
+
+
+        <label>
+            <span>MESSAGE</span>
+
+            <textarea
+                name="message"
+                placeholder="ENTER TRANSMISSION..."
+                maxlength="5000"
+                required></textarea>
+        </label>
+
+
+        <button
+            type="submit"
+            class="v5-button contact-send-button"
+            id="contact-send-button">
+
+            <span>SEND TRANSMISSION</span>
+            <b>↗</b>
+
+        </button>
+
+
+        <div
+            class="contact-form-status"
+            id="contact-form-status"
+            aria-live="polite">
+        </div>
+
+    </form>
+
+</section>
+
+
+<section
+    class="v5-scene v5-contact-network"
+    data-state="CONNECTED">
+
+    <div class="v5-scene-number">03</div>
+
+    <div class="v5-contact-network-copy">
+
+        <span>03 / CONNECTION</span>
+
+        <h2>
+            ONE<br>
+            <em>CHANNEL.</em>
+        </h2>
+
+        <p>
+            Message received.
+            Connection established.
+            Conversation begins.
+        </p>
+
+    </div>
+
+
+    <div class="contact-network-core">
+
+        <div class="network-ring ring-a"></div>
+        <div class="network-ring ring-b"></div>
+        <div class="network-ring ring-c"></div>
+
+        <div class="network-node node-a">
+            YOU
+        </div>
+
+        <div class="network-node node-b">
+            T!NΞ
+        </div>
+
+        <div class="network-line line-a"></div>
+
+        <div class="network-core-center">
+            <span>↔</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    class="v5-scene v5-contact-final"
+    data-state="CHANNEL OPEN">
+
+    <div class="v5-scene-number">04</div>
+
+    <div class="v5-contact-final-copy">
+
+        <span>04 / CHANNEL STATUS</span>
+
+        <h2>
+            CHANNEL<br>
+            <em>OPEN.</em>
+        </h2>
+
+        <p>
+            TineTech is listening.
+        </p>
+
+    </div>
+
+    <div class="contact-status-panel">
+
+        <div>
+            <small>CHANNEL</small>
+            <strong>DIRECT</strong>
+        </div>
+
+        <div>
+            <small>ROUTING</small>
+            <strong>SERVER</strong>
+        </div>
+
+        <div>
+            <small>DESTINATION</small>
+            <strong>OWNER</strong>
+        </div>
+
+        <div>
+            <small>STATUS</small>
+            <strong class="online">ONLINE</strong>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="v5-footer">
+
+    <span>© 2026 TineTech</span>
+
+    <span>
+        BUILD / BREAK / UNDERSTAND
+    </span>
+
+    <span>
+        T!NΞ
+    </span>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

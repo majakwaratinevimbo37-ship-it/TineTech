@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#020204">
+    <meta name="description" content="TineTech System — the architecture behind the experiments.">
+
+    <title>SYSTEM — T!NΞ</title>
+
+    <link rel="icon"
+          type="image/svg+xml"
+          href="{{ url_for('static', filename='favicon.svg') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="v5-page v5-system-page">
+
+<div class="v5-world">
+    <div class="v5-sky"></div>
+    <div class="v5-stars v5-stars-one"></div>
+    <div class="v5-stars v5-stars-two"></div>
+    <div class="v5-stars v5-stars-three"></div>
+
+    <div class="v5-nebula v5-nebula-one"></div>
+    <div class="v5-nebula v5-nebula-two"></div>
+
+    <div class="v5-grid"></div>
+
+    <div class="v5-light v5-light-one"></div>
+    <div class="v5-light v5-light-two"></div>
+
+    <div class="v5-vignette"></div>
+    <div class="v5-noise"></div>
+</div>
+
+
+<div class="v5-cursor">
+    <div class="v5-cursor-dot"></div>
+    <div class="v5-cursor-ring"></div>
+    <span>MOVE</span>
+</div>
+
+
+<header class="v5-navigation">
+
+    <a href="/" class="v5-brand">
+        T<span>!</span>NΞ
+    </a>
+
+    <div class="v5-status">
+        <i></i>
+        <span>SYSTEM ONLINE</span>
+    </div>
+
+    <nav class="v5-nav-links">
+
+        <a href="/">
+            <small>01</small>
+            HOME
+        </a>
+
+        <a href="/about">
+            <small>02</small>
+            ABOUT
+        </a>
+
+        <a href="/lab">
+            <small>03</small>
+            LAB
+        </a>
+
+        <a href="/system" class="active">
+            <small>04</small>
+            SYSTEM
+        </a>
+
+        <a href="/contact">
+            <small>05</small>
+            CONTACT
+        </a>
+
+    </nav>
+
+    <button
+        class="v5-menu"
+        id="v5-menu"
+        aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+<div class="v5-hud">
+
+    <div class="v5-hud-location">
+        <span>LOCATION</span>
+        <strong>17°49′ S</strong>
+        <strong>31°03′ E</strong>
+    </div>
+
+    <div class="v5-hud-state">
+        <span>STATE</span>
+        <strong id="v5-state">CORE</strong>
+        <small id="v5-state-number">01 / 05</small>
+    </div>
+
+    <div class="v5-hud-top">
+        <span>T!NΞ / SYSTEM</span>
+        <div></div>
+        <span>CORE ARCHITECTURE</span>
+    </div>
+
+    <div class="v5-hud-progress">
+        <span id="v5-progress-text">000%</span>
+
+        <div>
+            <i id="v5-progress-bar"></i>
+        </div>
+    </div>
+
+</div>
+
+
+<main class="v5-main v5-inner-main">
+
+
+<!-- =====================================================
+     SCENE 01 — CORE
+     ===================================================== -->
+
+<section
+    class="v5-scene v5-system-hero"
+    data-state="CORE">
+
+    <div class="v5-scene-number">
+        01
+    </div>
+
+    <div class="v5-scene-label">
+        TINETECH / CORE ARCHITECTURE
+    </div>
+
+
+    <div class="v5-system-hero-copy">
+
+        <div class="v5-kicker">
+            <i></i>
+            SYSTEM INITIALIZATION
+        </div>
+
+        <h1>
+            <span>BEHIND</span>
+            <span>THE</span>
+            <span class="v5-accent">MACHINE.</span>
+        </h1>
+
+        <p>
+            Every experiment has an architecture.
+            Every interface has a system beneath it.
+            This is where the pieces connect.
+        </p>
+
+    </div>
+
+
+    <div class="v5-system-core">
+
+        <div class="system-core-ring ring-a"></div>
+        <div class="system-core-ring ring-b"></div>
+        <div class="system-core-ring ring-c"></div>
+
+        <div class="system-core-lines line-a"></div>
+        <div class="system-core-lines line-b"></div>
+
+        <div class="system-core-center">
+
+            <span>T</span>
+
+            <small>
+                CORE
+            </small>
+
+        </div>
+
+        <div class="system-core-status">
+            SYSTEM
+            READY
+        </div>
+
+    </div>
+
+
+    <div class="v5-scroll-indicator">
+
+        <span>ACCESS ARCHITECTURE</span>
+
+        <i></i>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 02 — ARCHITECTURE
+     ===================================================== -->
+
+<section
+    class="v5-scene v5-system-architecture"
+    data-state="ARCHITECTURE">
+
+    <div class="v5-scene-number">
+        02
+    </div>
+
+
+    <div class="v5-system-architecture-copy">
+
+        <span>
+            02 / ARCHITECTURE
+        </span>
+
+        <h2>
+            MANY<br>
+            SYSTEMS.<br>
+            <em>ONE CORE.</em>
+        </h2>
+
+        <p>
+            TineTech connects code, design,
+            intelligence and experimentation
+            into one evolving environment.
+        </p>
+
+    </div>
+
+
+    <div class="v5-system-map">
+
+        <div class="system-map-core">
+            T!NΞ
+        </div>
+
+
+        <div class="system-node node-python">
+            <small>01</small>
+            <strong>PYTHON</strong>
+            <span>LOGIC</span>
+        </div>
+
+
+        <div class="system-node node-ai">
+            <small>02</small>
+            <strong>AI</strong>
+            <span>INTELLIGENCE</span>
+        </div>
+
+
+        <div class="system-node node-design">
+            <small>03</small>
+            <strong>DESIGN</strong>
+            <span>INTERFACE</span>
+        </div>
+
+
+        <div class="system-node node-web">
+            <small>04</small>
+            <strong>WEB</strong>
+            <span>EXPERIENCE</span>
+        </div>
+
+
+        <div class="system-connection connection-a"></div>
+        <div class="system-connection connection-b"></div>
+        <div class="system-connection connection-c"></div>
+        <div class="system-connection connection-d"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 03 — DIAGNOSTICS
+     ===================================================== -->
+
+<section
+    class="v5-scene v5-system-diagnostics"
+    data-state="DIAGNOSTICS">
+
+    <div class="v5-scene-number">
+        03
+    </div>
+
+
+    <div class="v5-system-diagnostics-copy">
+
+        <span>
+            03 / DIAGNOSTICS
+        </span>
+
+        <h2>
+            SYSTEM<br>
+            <em>STATUS.</em>
+        </h2>
+
+    </div>
+
+
+    <div class="v5-diagnostics-panel">
+
+        <div class="diagnostic-header">
+
+            <span>
+                T!NΞ_DIAGNOSTIC
+            </span>
+
+            <span>
+                LIVE
+            </span>
+
+        </div>
+
+
+        <div class="diagnostic-row">
+
+            <div>
+                <small>CORE</small>
+                <strong>ONLINE</strong>
+            </div>
+
+            <span class="status-green">
+                ●
+            </span>
+
+        </div>
+
+
+        <div class="diagnostic-row">
+
+            <div>
+                <small>NETWORK</small>
+                <strong>STABLE</strong>
+            </div>
+
+            <span class="status-green">
+                ●
+            </span>
+
+        </div>
+
+
+        <div class="diagnostic-row">
+
+            <div>
+                <small>AI MODULE</small>
+                <strong>READY</strong>
+            </div>
+
+            <span class="status-blue">
+                ●
+            </span>
+
+        </div>
+
+
+        <div class="diagnostic-row">
+
+            <div>
+                <small>LAB</small>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <span class="status-blue">
+                ●
+            </span>
+
+        </div>
+
+
+        <div class="diagnostic-row">
+
+            <div>
+                <small>EXPERIMENTS</small>
+                <strong>RUNNING</strong>
+            </div>
+
+            <span class="status-green">
+                ●
+            </span>
+
+        </div>
+
+
+        <div class="diagnostic-footer">
+
+            <span>
+                SYSTEM INTEGRITY
+            </span>
+
+            <strong>
+                100%
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="v5-system-scan">
+
+        <div class="scan-line"></div>
+
+        <div class="scan-circle"></div>
+
+        <span>
+            SCANNING
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 04 — DATA
+     ===================================================== -->
+
+<section
+    class="v5-scene v5-system-data"
+    data-state="DATA">
+
+    <div class="v5-scene-number">
+        04
+    </div>
+
+
+    <div class="v5-system-data-copy">
+
+        <span>
+            04 / DATA FLOW
+        </span>
+
+        <h2>
+            INFORMATION<br>
+            <em>IN MOTION.</em>
+        </h2>
+
+    </div>
+
+
+    <div class="v5-data-stream">
+
+        <div class="data-column">
+
+            <span>INPUT</span>
+
+            <strong>
+                010101
+            </strong>
+
+            <strong>
+                110010
+            </strong>
+
+            <strong>
+                011001
+            </strong>
+
+            <strong>
+                101110
+            </strong>
+
+        </div>
+
+
+        <div class="data-arrow">
+            →
+        </div>
+
+
+        <div class="data-column active">
+
+            <span>PROCESS</span>
+
+            <strong>
+                110101
+            </strong>
+
+            <strong>
+                001101
+            </strong>
+
+            <strong>
+                111000
+            </strong>
+
+            <strong>
+                010011
+            </strong>
+
+        </div>
+
+
+        <div class="data-arrow">
+            →
+        </div>
+
+
+        <div class="data-column">
+
+            <span>OUTPUT</span>
+
+            <strong>
+                101010
+            </strong>
+
+            <strong>
+                010101
+            </strong>
+
+            <strong>
+                111101
+            </strong>
+
+            <strong>
+                001110
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 05 — NEXT STATE
+     ===================================================== -->
+
+<section
+    class="v5-scene v5-system-final"
+    data-state="NEXT STATE">
+
+    <div class="v5-scene-number">
+        05
+    </div>
+
+
+    <div class="v5-system-final-copy">
+
+        <span>
+            05 / NEXT STATE
+        </span>
+
+        <h2>
+            THE SYSTEM<br>
+            IS NEVER
+            <em>FINISHED.</em>
+        </h2>
+
+        <p>
+            Every version creates the possibility
+            for the next one.
+        </p>
+
+
+        <a
+            href="/contact"
+            class="v5-button v5-magnetic">
+
+            <span>
+                CONNECT TO T!NΞ
+            </span>
+
+            <b>
+                ↗
+            </b>
+
+        </a>
+
+    </div>
+
+
+    <div class="v5-system-final-core">
+
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <span>
+            T!NΞ
+        </span>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer class="v5-footer">
+
+    <span>
+        © 2026 TineTech
+    </span>
+
+    <span>
+        BUILD / BREAK / UNDERSTAND
+    </span>
+
+    <span>
+        T!NΞ
+    </span>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
