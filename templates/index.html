@@ -4,522 +4,709 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#020204">
-    <meta name="description" content="TineTech — creative technology, experimental systems and digital experiences.">
+    <title>TineTech — We Build What's Next</title>
+    <meta
+        name="description"
+        content="TineTech builds modern websites, digital systems, AI solutions and technology experiences."
+    >
 
-    <title>T!NΞ — TineTech</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
 
-    <link rel="icon" type="image/svg+xml"
-          href="{{ url_for('static', filename='favicon.svg') }}">
+    <!-- Keep the shared site system -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <!-- Home V15 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='home-v14.css') }}">
 </head>
 
-<body class="v5-home">
+<body class="tt14-home tt15-home">
 
-<!-- =========================================================
-     V5 ENVIRONMENT
-========================================================= -->
-
-<div class="v5-world">
-
-    <div class="v5-sky"></div>
-
-    <div class="v5-stars v5-stars-one"></div>
-    <div class="v5-stars v5-stars-two"></div>
-    <div class="v5-stars v5-stars-three"></div>
-
-    <div class="v5-nebula v5-nebula-one"></div>
-    <div class="v5-nebula v5-nebula-two"></div>
-
-    <div class="v5-grid"></div>
-
-    <div class="v5-light v5-light-one"></div>
-    <div class="v5-light v5-light-two"></div>
-
-    <div class="v5-vignette"></div>
-    <div class="v5-noise"></div>
-
-</div>
-
-
-<!-- =========================================================
-     CAMERA
-========================================================= -->
-
-<div class="v5-camera">
-
-    <div class="v5-depth depth-back"></div>
-    <div class="v5-depth depth-mid"></div>
-    <div class="v5-depth depth-front"></div>
-
-</div>
-
-
-<!-- =========================================================
-     CURSOR
-========================================================= -->
-
-<div class="v5-cursor">
-
-    <div class="v5-cursor-dot"></div>
-
-    <div class="v5-cursor-ring"></div>
-
-    <span>MOVE</span>
-
-</div>
-
-
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
-
-<header class="v5-navigation">
-
-    <a href="/" class="v5-brand">
-        T<span>!</span>NΞ
-    </a>
-
-    <div class="v5-status">
-        <i></i>
-        <span>SYSTEM ONLINE</span>
-    </div>
-
-    <nav class="v5-nav-links">
-
-        <a href="/" class="active">
-            <small>01</small>
-            HOME
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+    <header class="tt15-nav" id="tt15Nav">
+        <a href="/" class="tt15-logo">
+            <span class="tt15-logo-mark">T</span>
+            <span class="tt15-logo-name">TineTech</span>
         </a>
 
-        <a href="/about">
-            <small>02</small>
-            ABOUT
+        <nav class="tt15-navigation" id="tt15Navigation">
+            <a href="/" class="active">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/lab">LAB</a>
+            <a href="/system">SYSTEM</a>
+            <a href="/contact">CONTACT</a>
+        </nav>
+
+        <a href="/contact" class="tt15-nav-cta">
+            START A PROJECT
+            <span>↗</span>
         </a>
 
-        <a href="/lab">
-            <small>03</small>
-            LAB
-        </a>
-
-        <a href="/system">
-            <small>04</small>
-            SYSTEM
-        </a>
-
-        <a href="/contact">
-            <small>05</small>
-            CONTACT
-        </a>
-
-    </nav>
-
-    <button class="v5-menu" id="v5-menu" aria-label="Open menu">
-        <span></span>
-        <span></span>
-    </button>
-
-</header>
+        <button class="tt15-menu" id="tt15Menu" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
 
-<!-- =========================================================
-     HUD
-========================================================= -->
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+    <main>
 
-<div class="v5-hud">
+        <section class="tt15-hero">
 
-    <div class="v5-hud-location">
-        <span>LOCATION</span>
-        <strong>17°49′ S</strong>
-        <strong>31°03′ E</strong>
-    </div>
+            <div class="tt15-hero-top">
+                <div class="tt15-eyebrow">
+                    <span class="tt15-live-dot"></span>
+                    DIGITAL TECHNOLOGY STUDIO
+                </div>
 
-    <div class="v5-hud-state">
+                <div class="tt15-hero-index">
+                    <span>01</span>
+                    <span>/</span>
+                    <span>05</span>
+                </div>
+            </div>
 
-        <span>STATE</span>
+            <div class="tt15-hero-copy">
+                <h1>
+                    WE BUILD
+                    <span>WHAT'S NEXT.</span>
+                </h1>
 
-        <strong id="v5-state">
-            ORIGIN
-        </strong>
+                <div class="tt15-hero-bottom">
+                    <p>
+                        TineTech creates modern websites, intelligent digital
+                        systems and technology experiences designed to turn
+                        ambitious ideas into something real.
+                    </p>
 
-        <small id="v5-state-number">
-            01 / 05
-        </small>
-
-    </div>
-
-    <div class="v5-hud-top">
-
-        <span>T!NΞ / V5</span>
-
-        <div></div>
-
-        <span>CREATIVE TECHNOLOGY</span>
-
-    </div>
-
-    <div class="v5-hud-progress">
-
-        <span id="v5-progress-text">
-            000%
-        </span>
-
-        <div>
-            <i id="v5-progress-bar"></i>
-        </div>
-
-    </div>
-
-</div>
+                    <a href="#services" class="tt15-round-button">
+                        <span>EXPLORE</span>
+                        <strong>↓</strong>
+                    </a>
+                </div>
+            </div>
 
 
-<!-- =========================================================
-     MAIN
-========================================================= -->
+            <!-- Main visual -->
+            <div class="tt15-hero-visual">
 
-<main class="v5-main">
+                <div class="tt15-hero-image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2200&q=90"
+                        alt="Technology team collaborating on a digital project"
+                        class="tt15-hero-image"
+                    >
+
+                    <div class="tt15-image-gradient"></div>
+
+                    <div class="tt15-hero-caption">
+                        <span>01 — DIGITAL EXPERIENCE</span>
+                        <strong>IDEAS BECOME REALITY.</strong>
+                    </div>
+                </div>
+
+                <!-- Floating technology card -->
+                <div class="tt15-floating-card tt15-card-one">
+                    <span class="tt15-card-number">01</span>
+                    <span>WEB</span>
+                    <strong>EXPERIENCES</strong>
+                </div>
+
+                <div class="tt15-floating-card tt15-card-two">
+                    <span class="tt15-status-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+
+            </div>
 
 
-<!-- =========================================================
-     SCENE 01 — ORIGIN
-========================================================= -->
+            <!-- Hero statement -->
+            <div class="tt15-hero-statement">
+                <div class="tt15-statement-line"></div>
 
-<section class="v5-scene v5-origin" data-state="ORIGIN">
+                <p>
+                    YOU BRING THE VISION.
+                    <strong>WE BUILD THE FUTURE.</strong>
+                </p>
 
-    <div class="v5-scene-number">01</div>
+                <span class="tt15-statement-arrow">↘</span>
+            </div>
 
-    <div class="v5-scene-label">
-        TINETECH / DIGITAL LAB
-    </div>
+        </section>
 
 
-    <div class="v5-origin-content">
+        <!-- =========================================================
+             TRUST / CAPABILITIES STRIP
+        ========================================================== -->
+        <section class="tt15-marquee-section">
 
-        <div class="v5-kicker">
-            <i></i>
-            TECHNOLOGY / CREATION / EVOLUTION
-        </div>
+            <div class="tt15-marquee-label">
+                WHAT WE BUILD
+            </div>
 
-        <h1>
-            <span>BUILD</span>
-            <span>THE</span>
-            <span class="v5-accent">UNREAL.</span>
-        </h1>
+            <div class="tt15-marquee">
+                <div class="tt15-marquee-track">
+                    <span>WEBSITES</span>
+                    <i>✦</i>
+                    <span>DIGITAL SYSTEMS</span>
+                    <i>✦</i>
+                    <span>AI</span>
+                    <i>✦</i>
+                    <span>AUTOMATION</span>
+                    <i>✦</i>
+                    <span>WEB EXPERIENCES</span>
+                    <i>✦</i>
 
-        <p>
-            TineTech is an experimental technology
-            laboratory creating systems, software
-            and digital experiences built for what
-            comes next.
-        </p>
+                    <span>WEBSITES</span>
+                    <i>✦</i>
+                    <span>DIGITAL SYSTEMS</span>
+                    <i>✦</i>
+                    <span>AI</span>
+                    <i>✦</i>
+                    <span>AUTOMATION</span>
+                    <i>✦</i>
+                    <span>WEB EXPERIENCES</span>
+                    <i>✦</i>
+                </div>
+            </div>
 
-        <div class="v5-actions">
+        </section>
 
-            <a href="/lab" class="v5-button v5-magnetic">
-                <span>ENTER THE LAB</span>
-                <b>↗</b>
+
+        <!-- =========================================================
+             INTRO
+        ========================================================== -->
+        <section class="tt15-intro">
+
+            <div class="tt15-section-number">02 / WHO WE ARE</div>
+
+            <div class="tt15-intro-content">
+                <h2>
+                    TECHNOLOGY
+                    <span>WITH PURPOSE.</span>
+                </h2>
+
+                <div class="tt15-intro-side">
+                    <p>
+                        We don't believe technology should be complicated
+                        for the sake of looking impressive.
+                    </p>
+
+                    <p>
+                        We design digital products that are clear,
+                        useful, fast and memorable.
+                    </p>
+
+                    <a href="/about" class="tt15-text-link">
+                        DISCOVER TINETECH
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SERVICES
+        ========================================================== -->
+        <section class="tt15-services" id="services">
+
+            <div class="tt15-services-header">
+                <div>
+                    <span class="tt15-section-number">03 / CAPABILITIES</span>
+                    <h2>WHAT WE DO.</h2>
+                </div>
+
+                <p>
+                    From the first idea to the finished product,
+                    we build the digital layer behind ambitious ideas.
+                </p>
+            </div>
+
+
+            <div class="tt15-service-grid">
+
+                <a href="/contact" class="tt15-service">
+                    <div class="tt15-service-top">
+                        <span>01</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h3>WEBSITES</h3>
+
+                    <p>
+                        Premium websites built around your brand,
+                        customers and goals.
+                    </p>
+
+                    <div class="tt15-service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=90"
+                            alt="Laptop displaying code"
+                        >
+                    </div>
+                </a>
+
+
+                <a href="/contact" class="tt15-service">
+                    <div class="tt15-service-top">
+                        <span>02</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h3>DIGITAL SYSTEMS</h3>
+
+                    <p>
+                        Practical systems that make businesses
+                        faster and easier to operate.
+                    </p>
+
+                    <div class="tt15-service-graphic">
+                        <div class="tt15-grid-lines"></div>
+                        <div class="tt15-system-orb"></div>
+                        <span>SYSTEM / 02</span>
+                    </div>
+                </a>
+
+
+                <a href="/contact" class="tt15-service">
+                    <div class="tt15-service-top">
+                        <span>03</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h3>AI + AUTOMATION</h3>
+
+                    <p>
+                        Intelligent workflows that reduce repetitive
+                        work and unlock new possibilities.
+                    </p>
+
+                    <div class="tt15-service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=90"
+                            alt="Computer technology hardware"
+                        >
+                    </div>
+                </a>
+
+
+                <a href="/contact" class="tt15-service">
+                    <div class="tt15-service-top">
+                        <span>04</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h3>EXPERIMENTAL TECH</h3>
+
+                    <p>
+                        Interactive ideas, prototypes and digital
+                        experiences beyond the ordinary.
+                    </p>
+
+                    <div class="tt15-service-graphic tt15-dark-graphic">
+                        <div class="tt15-rings">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span>LAB / 04</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             HUMAN / CUSTOMER STORY
+        ========================================================== -->
+        <section class="tt15-story">
+
+            <div class="tt15-story-image">
+                <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2200&q=90"
+                    alt="People working together on a digital project"
+                >
+
+                <div class="tt15-story-overlay">
+                    <span>BUILDING TOGETHER</span>
+                    <strong>PEOPLE FIRST.</strong>
+                </div>
+            </div>
+
+            <div class="tt15-story-content">
+
+                <span class="tt15-section-number">04 / THE EXPERIENCE</span>
+
+                <h2>
+                    GREAT
+                    <span>TECHNOLOGY</span>
+                    FEELS
+                    <span>SIMPLE.</span>
+                </h2>
+
+                <p>
+                    Your customers shouldn't have to understand the
+                    technology behind your product. They should simply
+                    enjoy using it.
+                </p>
+
+                <div class="tt15-story-stats">
+                    <div>
+                        <strong>01</strong>
+                        <span>CLARITY</span>
+                    </div>
+
+                    <div>
+                        <strong>02</strong>
+                        <span>QUALITY</span>
+                    </div>
+
+                    <div>
+                        <strong>03</strong>
+                        <span>IMPACT</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             CUSTOMER / LAPTOP VISUAL
+        ========================================================== -->
+        <section class="tt15-customer">
+
+            <div class="tt15-customer-header">
+                <span class="tt15-section-number">05 / MADE FOR PEOPLE</span>
+
+                <h2>
+                    DIGITAL
+                    <span>SHOULD FEEL ALIVE.</span>
+                </h2>
+            </div>
+
+            <div class="tt15-customer-visual">
+
+                <img
+                    src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=90"
+                    alt="Happy customer using technology"
+                >
+
+                <div class="tt15-laptop-frame">
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90"
+                        alt="Laptop and digital workspace"
+                    >
+                </div>
+
+                <div class="tt15-customer-message">
+                    <span>THE RESULT</span>
+                    <strong>
+                        TECHNOLOGY
+                        PEOPLE
+                        ACTUALLY
+                        WANT TO USE.
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             PROCESS
+        ========================================================== -->
+        <section class="tt15-process">
+
+            <div class="tt15-process-heading">
+                <span class="tt15-section-number">06 / OUR PROCESS</span>
+                <h2>FROM IDEA<br><span>TO REALITY.</span></h2>
+            </div>
+
+
+            <div class="tt15-process-list">
+
+                <div class="tt15-process-item">
+                    <span>01</span>
+
+                    <div>
+                        <h3>THINK</h3>
+                        <p>
+                            Understand the problem, the audience
+                            and the opportunity.
+                        </p>
+                    </div>
+
+                    <strong>↗</strong>
+                </div>
+
+
+                <div class="tt15-process-item">
+                    <span>02</span>
+
+                    <div>
+                        <h3>BUILD</h3>
+                        <p>
+                            Turn the concept into a real,
+                            working digital experience.
+                        </p>
+                    </div>
+
+                    <strong>↗</strong>
+                </div>
+
+
+                <div class="tt15-process-item">
+                    <span>03</span>
+
+                    <div>
+                        <h3>TEST</h3>
+                        <p>
+                            Challenge everything until the
+                            experience feels right.
+                        </p>
+                    </div>
+
+                    <strong>↗</strong>
+                </div>
+
+
+                <div class="tt15-process-item">
+                    <span>04</span>
+
+                    <div>
+                        <h3>EVOLVE</h3>
+                        <p>
+                            Launch, learn and keep making
+                            the product better.
+                        </p>
+                    </div>
+
+                    <strong>↗</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             FINAL CTA
+        ========================================================== -->
+        <section class="tt15-final">
+
+            <div class="tt15-final-background"></div>
+
+            <div class="tt15-final-content">
+
+                <span class="tt15-section-number">07 / START SOMETHING</span>
+
+                <h2>
+                    HAVE
+                    <span>AN IDEA?</span>
+                </h2>
+
+                <p>
+                    Let's turn it into something people can see,
+                    use and remember.
+                </p>
+
+                <a href="/contact" class="tt15-final-button">
+                    <span>START A PROJECT</span>
+                    <strong>↗</strong>
+                </a>
+
+            </div>
+
+            <div class="tt15-final-orbit">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="tt15-footer">
+
+        <div class="tt15-footer-top">
+
+            <a href="/" class="tt15-logo tt15-footer-logo">
+                <span class="tt15-logo-mark">T</span>
+                <span class="tt15-logo-name">TineTech</span>
             </a>
 
-            <a href="#v5-world" class="v5-scroll-link">
-                EXPLORE
-                <span>↓</span>
-            </a>
+            <p>
+                TECHNOLOGY THAT<br>
+                MOVES IDEAS FORWARD.
+            </p>
 
         </div>
 
-    </div>
+        <div class="tt15-footer-bottom">
 
+            <span>© 2026 TineTech</span>
 
-    <!-- CORE -->
+            <div>
+                <a href="/about">ABOUT</a>
+                <a href="/lab">LAB</a>
+                <a href="/system">SYSTEM</a>
+                <a href="/contact">CONTACT</a>
+            </div>
 
-    <div class="v5-core">
+            <span>HARARE / ZIMBABWE</span>
 
-        <div class="v5-core-a"></div>
-        <div class="v5-core-b"></div>
-        <div class="v5-core-c"></div>
-
-        <div class="v5-core-orbit orbit-one"></div>
-        <div class="v5-core-orbit orbit-two"></div>
-        <div class="v5-core-orbit orbit-three"></div>
-
-        <div class="v5-core-particle particle-one"></div>
-        <div class="v5-core-particle particle-two"></div>
-        <div class="v5-core-particle particle-three"></div>
-        <div class="v5-core-particle particle-four"></div>
-        <div class="v5-core-particle particle-five"></div>
-
-        <div class="v5-core-center">
-            <span>T</span>
-            <small>T!NΞ</small>
         </div>
 
-    </div>
-
-
-    <div class="v5-scroll-indicator">
-        <span>SCROLL TO ENTER</span>
-        <i></i>
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SCENE 02 — WORLD
-========================================================= -->
-
-<section id="v5-world"
-         class="v5-scene v5-world-scene"
-         data-state="THE WORLD">
-
-    <div class="v5-scene-number">02</div>
-
-    <div class="v5-giant-text">
-        TINETECH
-    </div>
-
-
-    <div class="v5-world-copy">
-
-        <span>02 / THE WORLD</span>
-
-        <h2>
-            THIS ISN'T
-            <br>
-            A <em>WEBSITE.</em>
-        </h2>
-
-        <p>
-            It's a digital environment where code,
-            design and imagination collide.
-        </p>
-
-    </div>
-
-
-    <div class="v5-floating-object object-one">
-
-        <small>01</small>
-
-        <strong>CREATE</strong>
-
-        <span>IDEAS → REALITY</span>
-
-    </div>
-
-
-    <div class="v5-floating-object object-two">
-
-        <small>02</small>
-
-        <strong>EXPERIMENT</strong>
-
-        <span>QUESTION → DISCOVER</span>
-
-    </div>
-
-
-    <div class="v5-floating-object object-three">
-
-        <small>03</small>
-
-        <strong>EVOLVE</strong>
-
-        <span>VERSION → VERSION</span>
-
-    </div>
-
-
-    <div class="v5-axis axis-horizontal"></div>
-    <div class="v5-axis axis-vertical"></div>
-
-</section>
-
-
-<!-- =========================================================
-     SCENE 03 — CORE
-========================================================= -->
-
-<section class="v5-scene v5-core-scene"
-         data-state="THE CORE">
-
-    <div class="v5-scene-number">03</div>
-
-    <div class="v5-core-copy">
-
-        <span>03 / THE CORE</span>
-
-        <h2>
-            IDEAS
-            <br>
-            <em>IN MOTION.</em>
-        </h2>
-
-        <p>
-            Python systems. Artificial intelligence.
-            Interfaces. Experimental software.
-            Every project starts as an idea and
-            becomes something you can interact with.
-        </p>
-
-        <a href="/system"
-           class="v5-button v5-magnetic">
-
-            <span>EXPLORE SYSTEM</span>
-            <b>↗</b>
-
-        </a>
-
-    </div>
-
-
-    <div class="v5-reactor-large">
-
-        <div class="reactor-plane plane-one"></div>
-        <div class="reactor-plane plane-two"></div>
-        <div class="reactor-plane plane-three"></div>
-
-        <div class="reactor-cube">
-            <span>T!NΞ</span>
-        </div>
-
-        <div class="reactor-beam beam-one"></div>
-        <div class="reactor-beam beam-two"></div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SCENE 04 — FUTURE
-========================================================= -->
-
-<section class="v5-scene v5-future"
-         data-state="FUTURE">
-
-    <div class="v5-scene-number">04</div>
-
-    <div class="v5-future-copy">
-
-        <span>04 / NEXT STATE</span>
-
-        <h2>
-            THINK
-            <br>
-            <em>FORWARD.</em>
-        </h2>
-
-        <p>
-            Technology doesn't have to follow
-            the obvious path.
-        </p>
-
-    </div>
-
-
-    <div class="v5-future-symbol">
-
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-
-        <span>T</span>
-
-    </div>
-
-
-    <div class="v5-process">
-
-        <div>
-            <small>PROCESS</small>
-            <strong>IMAGINE</strong>
-        </div>
-
-        <div>
-            <small>PROCESS</small>
-            <strong>BUILD</strong>
-        </div>
-
-        <div>
-            <small>PROCESS</small>
-            <strong>EVOLVE</strong>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SCENE 05 — CONNECTION
-========================================================= -->
-
-<section class="v5-scene v5-final"
-         data-state="CONNECTION">
-
-    <div class="v5-scene-number">05</div>
-
-    <div class="v5-final-copy">
-
-        <span>05 / CONNECTION</span>
-
-        <h2>READY?</h2>
-
-        <p>
-            The next version starts here.
-        </p>
-
-        <a href="/contact"
-           class="v5-button v5-magnetic">
-
-            <span>START A CONNECTION</span>
-            <b>↗</b>
-
-        </a>
-
-    </div>
-
-
-    <div class="v5-final-core">
-
-        <div></div>
-        <div></div>
-        <div></div>
-
-        <span>T!NΞ</span>
-
-    </div>
-
-
-    <div class="v5-final-line">
-        BUILD / BREAK / UNDERSTAND
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="v5-footer">
-
-    <span>© 2026 TineTech</span>
-
-    <span>BUILD / BREAK / UNDERSTAND</span>
-
-    <span>T!NΞ</span>
-
-</footer>
-
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    </footer>
+
+
+    <!-- =========================================================
+         HOME V15 INTERACTIONS
+    ========================================================== -->
+    <script>
+        (() => {
+            const nav = document.getElementById("tt15Nav");
+            const menu = document.getElementById("tt15Menu");
+            const navigation = document.getElementById("tt15Navigation");
+
+            /* Navigation scroll state */
+            const updateNav = () => {
+                if (!nav) return;
+
+                if (window.scrollY > 40) {
+                    nav.classList.add("tt15-nav-scrolled");
+                } else {
+                    nav.classList.remove("tt15-nav-scrolled");
+                }
+            };
+
+            window.addEventListener("scroll", updateNav, { passive: true });
+            updateNav();
+
+
+            /* Mobile menu */
+            if (menu && navigation) {
+                menu.addEventListener("click", () => {
+                    navigation.classList.toggle("tt15-navigation-open");
+                    menu.classList.toggle("tt15-menu-open");
+                });
+
+                navigation.querySelectorAll("a").forEach(link => {
+                    link.addEventListener("click", () => {
+                        navigation.classList.remove("tt15-navigation-open");
+                        menu.classList.remove("tt15-menu-open");
+                    });
+                });
+            }
+
+
+            /* Service interaction */
+            document.querySelectorAll(".tt15-service").forEach(card => {
+                card.addEventListener("mouseenter", () => {
+                    document.querySelectorAll(".tt15-service").forEach(item => {
+                        item.classList.remove("tt15-service-active");
+                    });
+
+                    card.classList.add("tt15-service-active");
+                });
+            });
+
+
+            /* Process interaction */
+            document.querySelectorAll(".tt15-process-item").forEach(item => {
+                item.addEventListener("mouseenter", () => {
+                    document.querySelectorAll(".tt15-process-item").forEach(other => {
+                        other.classList.remove("tt15-process-active");
+                    });
+
+                    item.classList.add("tt15-process-active");
+                });
+            });
+
+
+            /* Gentle hero parallax */
+            const hero = document.querySelector(".tt15-hero");
+            const heroImage = document.querySelector(".tt15-hero-image");
+
+            if (hero && heroImage && window.matchMedia("(pointer:fine)").matches) {
+                hero.addEventListener("mousemove", event => {
+                    const rect = hero.getBoundingClientRect();
+
+                    const x =
+                        (event.clientX - rect.left) /
+                        rect.width -
+                        0.5;
+
+                    const y =
+                        (event.clientY - rect.top) /
+                        rect.height -
+                        0.5;
+
+                    heroImage.style.transform =
+                        `scale(1.035) translate(${x * 8}px, ${y * 8}px)`;
+                });
+
+                hero.addEventListener("mouseleave", () => {
+                    heroImage.style.transform =
+                        "scale(1) translate(0, 0)";
+                });
+            }
+
+
+            /* Reveal sections */
+            const revealItems = document.querySelectorAll(
+                ".tt15-service, .tt15-process-item, .tt15-story-content, .tt15-intro-content"
+            );
+
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(
+                    entries => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("tt15-visible");
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+
+                revealItems.forEach(item => observer.observe(item));
+            } else {
+                revealItems.forEach(item => {
+                    item.classList.add("tt15-visible");
+                });
+            }
+
+
+            /* Image loading polish */
+            document.querySelectorAll(".tt15-home img").forEach(image => {
+                image.addEventListener("load", () => {
+                    image.classList.add("tt15-image-loaded");
+                });
+            });
+
+        })();
+    </script>
 
 </body>
 </html>

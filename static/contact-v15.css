@@ -1,0 +1,1380 @@
+/* =========================================================
+   TINETECH CONTACT V15
+   FULLY SCOPED — DOES NOT MODIFY OTHER PAGES
+========================================================= */
+
+.tt15-contact-page {
+
+    --contact-black: #111111;
+    --contact-dark: #171717;
+    --contact-white: #f7f7f4;
+    --contact-grey: #e8e8e3;
+    --contact-muted: #777770;
+    --contact-line: #d1d1ca;
+    --contact-lime: #c8ff3d;
+
+    background: var(--contact-white);
+    color: var(--contact-black);
+
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.tt15-contact-page .tt15c-nav {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(247, 247, 244, .88);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(17, 17, 17, .08);
+
+    z-index: 1000;
+}
+
+
+.tt15-contact-page .tt15c-logo {
+
+    text-decoration: none;
+
+    color: var(--contact-black);
+
+    font-size: 20px;
+    font-weight: 900;
+
+    letter-spacing: -.06em;
+}
+
+
+.tt15-contact-page .tt15c-logo span {
+    font-weight: 400;
+}
+
+
+.tt15-contact-page .tt15c-nav-links {
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.tt15-contact-page .tt15c-nav-links a {
+
+    position: relative;
+
+    color: #555550;
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: .15em;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--contact-black);
+
+    transition: width .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-nav-links a:hover,
+.tt15-contact-page .tt15c-nav-links a.active {
+
+    color: var(--contact-black);
+}
+
+
+.tt15-contact-page .tt15c-nav-links a:hover::after,
+.tt15-contact-page .tt15c-nav-links a.active::after {
+
+    width: 100%;
+}
+
+
+.tt15-contact-page .tt15c-nav-button {
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    background: var(--contact-black);
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .12em;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-nav-button:hover {
+
+    background: var(--contact-lime);
+    color: var(--contact-black);
+
+    transform: translateY(-2px);
+}
+
+
+.tt15-contact-page .tt15c-menu {
+
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+    background: var(--contact-black);
+
+    cursor: pointer;
+}
+
+
+.tt15-contact-page .tt15c-menu span {
+
+    display: block;
+
+    width: 18px;
+    height: 1px;
+
+    margin: 5px auto;
+
+    background: white;
+
+    transition: transform .25s ease;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.tt15-contact-page .tt15c-hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        150px 8vw
+        100px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: var(--contact-white);
+}
+
+
+.tt15-contact-page .tt15c-hero-grid {
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(17,17,17,.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(17,17,17,.045) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    transform:
+        translate3d(
+            var(--mouse-x),
+            var(--mouse-y),
+            0
+        );
+
+    transition: transform .3s ease;
+}
+
+
+.tt15-contact-page .tt15c-hero-grid::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(200,255,61,.22),
+            transparent 30%
+        );
+}
+
+
+.tt15-contact-page .tt15c-status {
+
+    position: absolute;
+
+    top: 145px;
+    right: 8vw;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .14em;
+}
+
+
+.tt15-contact-page .tt15c-status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--contact-lime);
+
+    box-shadow:
+        0 0 0 5px rgba(200,255,61,.15);
+
+    animation: tt15cPulse 2s infinite;
+}
+
+
+@keyframes tt15cPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.35);
+    }
+}
+
+
+.tt15-contact-page .tt15c-hero-content {
+
+    position: relative;
+    z-index: 2;
+
+    max-width: 950px;
+}
+
+
+.tt15-contact-page .tt15c-kicker {
+
+    margin: 0 0 25px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: .18em;
+}
+
+
+.tt15-contact-page .tt15c-hero h1 {
+
+    margin: 0;
+
+    font-size: clamp(60px, 9.5vw, 150px);
+
+    line-height: .83;
+
+    letter-spacing: -.075em;
+
+    font-weight: 900;
+}
+
+
+.tt15-contact-page .tt15c-hero h1 span {
+
+    display: inline-block;
+
+    padding: 5px 15px;
+
+    background: var(--contact-lime);
+}
+
+
+.tt15-contact-page .tt15c-hero-description {
+
+    max-width: 470px;
+
+    margin: 45px 0 30px;
+
+    color: var(--contact-muted);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+.tt15-contact-page .tt15c-primary-button {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+
+    padding: 17px 22px;
+
+    background: var(--contact-black);
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: .12em;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-primary-button:hover {
+
+    background: var(--contact-lime);
+    color: var(--contact-black);
+
+    transform: translateY(-3px);
+}
+
+
+.tt15-contact-page .tt15c-primary-button span,
+.tt15-contact-page .tt15c-final-button span,
+.tt15-contact-page .tt15c-submit span {
+
+    font-size: 18px;
+}
+
+
+.tt15-contact-page .tt15c-hero-side {
+
+    position: absolute;
+
+    right: 8vw;
+    bottom: 17vh;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+
+.tt15-contact-page .tt15c-side-line {
+
+    width: 70px;
+    height: 1px;
+
+    background: var(--contact-black);
+}
+
+
+.tt15-contact-page .tt15c-hero-side p {
+
+    margin: 0;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    line-height: 1.6;
+    letter-spacing: .14em;
+}
+
+
+.tt15-contact-page .tt15c-scroll {
+
+    position: absolute;
+
+    left: 8vw;
+    bottom: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: .2em;
+}
+
+
+.tt15-contact-page .tt15c-scroll div {
+
+    width: 45px;
+    height: 1px;
+
+    background: var(--contact-black);
+
+    position: relative;
+}
+
+
+.tt15-contact-page .tt15c-scroll div::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: -1px;
+
+    width: 10px;
+    height: 3px;
+
+    background: var(--contact-lime);
+
+    animation: tt15cScroll 1.8s infinite;
+}
+
+
+@keyframes tt15cScroll {
+
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 35px;
+    }
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.tt15-contact-page .tt15c-intro {
+
+    padding: 150px 8vw;
+
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 60px;
+
+    border-top: 1px solid var(--contact-line);
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.tt15-contact-page .tt15c-intro.visible {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.tt15-contact-page .tt15c-section-label {
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .17em;
+}
+
+
+.tt15-contact-page .tt15c-section-label span {
+
+    margin-right: 20px;
+
+    color: #999990;
+}
+
+
+.tt15-contact-page .tt15c-large-text {
+
+    max-width: 850px;
+
+    margin: 0;
+
+    font-size: clamp(35px, 5vw, 75px);
+
+    line-height: .95;
+
+    font-weight: 800;
+
+    letter-spacing: -.06em;
+}
+
+
+.tt15-contact-page .tt15c-body-text {
+
+    max-width: 480px;
+
+    margin: 50px 0 0;
+
+    color: var(--contact-muted);
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.tt15-contact-page .tt15c-contact-section {
+
+    padding: 130px 8vw 160px;
+
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 100px;
+
+    background: var(--contact-dark);
+    color: white;
+}
+
+
+.tt15-contact-page .tt15c-contact-heading {
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.tt15-contact-page .tt15c-contact-heading.visible {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.tt15-contact-page .tt15c-contact-heading .tt15c-section-label {
+
+    color: white;
+}
+
+
+.tt15-contact-page .tt15c-contact-heading h2 {
+
+    margin: 90px 0 30px;
+
+    font-size: clamp(45px, 6vw, 85px);
+
+    line-height: .88;
+
+    letter-spacing: -.065em;
+}
+
+
+.tt15-contact-page .tt15c-contact-heading h2 span {
+
+    color: var(--contact-lime);
+}
+
+
+.tt15-contact-page .tt15c-contact-heading > p {
+
+    max-width: 350px;
+
+    color: #999;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.tt15-contact-page .tt15c-form {
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease .1s,
+        transform .8s ease .1s;
+}
+
+
+.tt15-contact-page .tt15c-form.visible {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.tt15-contact-page .tt15c-field-row {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+
+.tt15-contact-page .tt15c-field {
+
+    margin-bottom: 35px;
+}
+
+
+.tt15-contact-page .tt15c-field label {
+
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: #aaa;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .15em;
+}
+
+
+.tt15-contact-page .tt15c-field input,
+.tt15-contact-page .tt15c-field textarea,
+.tt15-contact-page .tt15c-field select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 17px 0;
+
+    border: 0;
+    border-bottom: 1px solid #414141;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    transition:
+        border-color .25s ease,
+        padding-left .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-field textarea {
+
+    resize: vertical;
+
+    min-height: 160px;
+}
+
+
+.tt15-contact-page .tt15c-field select {
+
+    cursor: pointer;
+}
+
+
+.tt15-contact-page .tt15c-field select option {
+
+    background: var(--contact-dark);
+    color: white;
+}
+
+
+.tt15-contact-page .tt15c-field input::placeholder,
+.tt15-contact-page .tt15c-field textarea::placeholder {
+
+    color: #555;
+}
+
+
+.tt15-contact-page .tt15c-field.focused input,
+.tt15-contact-page .tt15c-field.focused textarea,
+.tt15-contact-page .tt15c-field.focused select {
+
+    border-color: var(--contact-lime);
+
+    padding-left: 8px;
+}
+
+
+.tt15-contact-page .tt15c-form-bottom {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 30px;
+}
+
+
+.tt15-contact-page .tt15c-form-bottom p {
+
+    margin: 0;
+
+    color: #777;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    line-height: 1.7;
+
+    letter-spacing: .12em;
+}
+
+
+.tt15-contact-page .tt15c-submit {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+
+    padding: 18px 24px;
+
+    border: 0;
+
+    background: var(--contact-lime);
+    color: var(--contact-black);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: .12em;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-submit:hover {
+
+    transform: translateY(-3px);
+
+    background: white;
+}
+
+
+.tt15-contact-page .tt15c-form-message {
+
+    margin-top: 25px;
+
+    color: var(--contact-lime);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+
+.tt15-contact-page .tt15c-form-message.show {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   DIRECT CONTACT
+========================================================= */
+
+.tt15-contact-page .tt15c-direct {
+
+    padding: 110px 8vw;
+
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 60px;
+
+    border-bottom: 1px solid var(--contact-line);
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.tt15-contact-page .tt15c-direct.visible {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.tt15-contact-page .tt15c-direct-content p {
+
+    margin: 0 0 25px;
+
+    color: var(--contact-muted);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: .14em;
+}
+
+
+.tt15-contact-page .tt15c-direct-content a {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+
+    color: var(--contact-black);
+
+    text-decoration: none;
+
+    font-size: clamp(24px, 4vw, 55px);
+
+    font-weight: 800;
+
+    letter-spacing: -.05em;
+
+    transition: color .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-direct-content a:hover {
+
+    color: #777;
+}
+
+
+.tt15-contact-page .tt15c-direct-content a span {
+
+    color: var(--contact-black);
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.tt15-contact-page .tt15c-final {
+
+    position: relative;
+
+    min-height: 75vh;
+
+    padding: 100px 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: var(--contact-black);
+    color: white;
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.tt15-contact-page .tt15c-final.visible {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.tt15-contact-page .tt15c-final-glow {
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -150px;
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(200,255,61,.2),
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+
+.tt15-contact-page .tt15c-final-label {
+
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 40px;
+
+    color: #888;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .16em;
+}
+
+
+.tt15-contact-page .tt15c-final h2 {
+
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 50px;
+
+    font-size: clamp(65px, 12vw, 190px);
+
+    line-height: .8;
+
+    letter-spacing: -.08em;
+
+    font-weight: 900;
+}
+
+
+.tt15-contact-page .tt15c-final h2 span {
+
+    color: var(--contact-lime);
+}
+
+
+.tt15-contact-page .tt15c-final-button {
+
+    position: relative;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+
+    width: fit-content;
+
+    padding: 18px 24px;
+
+    background: white;
+    color: var(--contact-black);
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: .13em;
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+}
+
+
+.tt15-contact-page .tt15c-final-button:hover {
+
+    background: var(--contact-lime);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.tt15-contact-page .tt15c-footer {
+
+    padding: 50px 8vw 30px;
+
+    background: var(--contact-white);
+}
+
+
+.tt15-contact-page .tt15c-footer-top {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 40px;
+
+    border-bottom: 1px solid var(--contact-line);
+}
+
+
+.tt15-contact-page .tt15c-footer-top p {
+
+    margin: 0;
+
+    color: #777;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .14em;
+}
+
+
+.tt15-contact-page .tt15c-footer-bottom {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 25px;
+
+    color: #888;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: .1em;
+}
+
+
+.tt15-contact-page .tt15c-footer-bottom div {
+
+    display: flex;
+    gap: 25px;
+}
+
+
+.tt15-contact-page .tt15c-footer-bottom a {
+
+    color: #777;
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+
+.tt15-contact-page .tt15c-footer-bottom a:hover {
+
+    color: var(--contact-black);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .tt15-contact-page .tt15c-nav-links {
+
+        position: fixed;
+
+        top: 78px;
+        left: 0;
+        right: 0;
+
+        padding: 25px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+
+        background: var(--contact-white);
+
+        border-bottom: 1px solid var(--contact-line);
+
+        transform: translateY(-120%);
+
+        transition: transform .3s ease;
+    }
+
+
+    .tt15-contact-page .tt15c-nav-links.open {
+
+        transform: translateY(0);
+    }
+
+
+    .tt15-contact-page .tt15c-nav-button {
+
+        display: none;
+    }
+
+
+    .tt15-contact-page .tt15c-menu {
+
+        display: block;
+    }
+
+
+    .tt15-contact-page .tt15c-hero {
+
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+
+    .tt15-contact-page .tt15c-status {
+
+        right: 6vw;
+    }
+
+
+    .tt15-contact-page .tt15c-intro,
+    .tt15-contact-page .tt15c-direct {
+
+        grid-template-columns: 1fr;
+        gap: 45px;
+
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+
+    .tt15-contact-page .tt15c-contact-section {
+
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+
+    .tt15-contact-page .tt15c-final {
+
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .tt15-contact-page .tt15c-nav {
+
+        padding: 0 20px;
+    }
+
+
+    .tt15-contact-page .tt15c-hero {
+
+        min-height: 90vh;
+
+        padding:
+            130px 6vw
+            80px;
+    }
+
+
+    .tt15-contact-page .tt15c-status {
+
+        top: 105px;
+        left: 6vw;
+        right: auto;
+
+        font-size: 8px;
+    }
+
+
+    .tt15-contact-page .tt15c-hero h1 {
+
+        font-size: clamp(48px, 15vw, 80px);
+    }
+
+
+    .tt15-contact-page .tt15c-hero-description {
+
+        margin-top: 30px;
+
+        font-size: 14px;
+    }
+
+
+    .tt15-contact-page .tt15c-hero-side {
+
+        display: none;
+    }
+
+
+    .tt15-contact-page .tt15c-scroll {
+
+        left: 6vw;
+    }
+
+
+    .tt15-contact-page .tt15c-intro {
+
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+
+    .tt15-contact-page .tt15c-contact-section {
+
+        padding-top: 100px;
+        padding-bottom: 110px;
+    }
+
+
+    .tt15-contact-page .tt15c-contact-heading h2 {
+
+        margin-top: 60px;
+    }
+
+
+    .tt15-contact-page .tt15c-field-row {
+
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+
+    .tt15-contact-page .tt15c-form-bottom {
+
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    .tt15-contact-page .tt15c-direct {
+
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .tt15-contact-page .tt15c-direct-content a {
+
+        font-size: 25px;
+
+        word-break: break-word;
+    }
+
+
+    .tt15-contact-page .tt15c-final {
+
+        min-height: 65vh;
+    }
+
+
+    .tt15-contact-page .tt15c-final h2 {
+
+        font-size: 19vw;
+    }
+
+
+    .tt15-contact-page .tt15c-footer-top {
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    .tt15-contact-page .tt15c-footer-bottom {
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    .tt15-contact-page .tt15c-footer-bottom div {
+
+        flex-wrap: wrap;
+    }
+
+}

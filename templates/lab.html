@@ -4,480 +4,877 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#020204">
-    <meta name="description" content="TineTech Lab — experimental technology and digital experiments.">
+    <title>Lab — TineTech</title>
+    <meta
+        name="description"
+        content="The TineTech Lab — experiments, prototypes and ideas exploring what's next."
+    >
 
-    <title>LAB — T!NΞ</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
 
-    <link rel="icon"
-          type="image/svg+xml"
-          href="{{ url_for('static', filename='favicon.svg') }}">
+    <!-- Global stylesheet stays first for compatibility -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <!-- LAB ONLY -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='lab-v15.css') }}">
 </head>
 
-<body class="v5-page v5-lab-page">
+<body class="tt15-lab">
 
-<div class="v5-world">
-    <div class="v5-sky"></div>
-    <div class="v5-stars v5-stars-one"></div>
-    <div class="v5-stars v5-stars-two"></div>
-    <div class="v5-stars v5-stars-three"></div>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
 
-    <div class="v5-nebula v5-nebula-one"></div>
-    <div class="v5-nebula v5-nebula-two"></div>
+    <header class="tt15l-nav" id="tt15lNav">
 
-    <div class="v5-grid"></div>
-
-    <div class="v5-light v5-light-one"></div>
-    <div class="v5-light v5-light-two"></div>
-
-    <div class="v5-vignette"></div>
-    <div class="v5-noise"></div>
-</div>
-
-
-<div class="v5-cursor">
-    <div class="v5-cursor-dot"></div>
-    <div class="v5-cursor-ring"></div>
-    <span>MOVE</span>
-</div>
-
-
-<header class="v5-navigation">
-
-    <a href="/" class="v5-brand">
-        T<span>!</span>NΞ
-    </a>
-
-    <div class="v5-status">
-        <i></i>
-        <span>LAB ONLINE</span>
-    </div>
-
-    <nav class="v5-nav-links">
-
-        <a href="/">
-            <small>01</small>
-            HOME
+        <a href="/" class="tt15l-logo">
+            <span class="tt15l-logo-mark">T</span>
+            <span>TineTech</span>
         </a>
 
-        <a href="/about">
-            <small>02</small>
-            ABOUT
+        <nav class="tt15l-navigation">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/lab" class="active">LAB</a>
+            <a href="/system">SYSTEM</a>
+            <a href="/contact">CONTACT</a>
+        </nav>
+
+        <a href="/contact" class="tt15l-nav-button">
+            START A PROJECT
+            <span>↗</span>
         </a>
 
-        <a href="/lab" class="active">
-            <small>03</small>
-            LAB
-        </a>
+        <button
+            class="tt15l-menu"
+            id="tt15lMenu"
+            aria-label="Open navigation"
+        >
+            <span></span>
+            <span></span>
+        </button>
 
-        <a href="/system">
-            <small>04</small>
-            SYSTEM
-        </a>
-
-        <a href="/contact">
-            <small>05</small>
-            CONTACT
-        </a>
-
-    </nav>
-
-    <button
-        class="v5-menu"
-        id="v5-menu"
-        aria-label="Open menu">
-
-        <span></span>
-        <span></span>
-
-    </button>
-
-</header>
+    </header>
 
 
-<div class="v5-hud">
+    <main>
 
-    <div class="v5-hud-location">
-        <span>LOCATION</span>
-        <strong>17°49′ S</strong>
-        <strong>31°03′ E</strong>
-    </div>
+        <!-- =====================================================
+             LAB HERO
+        ====================================================== -->
 
-    <div class="v5-hud-state">
-        <span>STATE</span>
-        <strong id="v5-state">EXPERIMENT</strong>
-        <small id="v5-state-number">01 / 05</small>
-    </div>
+        <section class="tt15l-hero">
 
-    <div class="v5-hud-top">
-        <span>T!NΞ / LAB</span>
-        <div></div>
-        <span>EXPERIMENTAL DIVISION</span>
-    </div>
+            <div class="tt15l-grid"></div>
 
-    <div class="v5-hud-progress">
-        <span id="v5-progress-text">000%</span>
+            <div class="tt15l-orb tt15l-orb-one"></div>
+            <div class="tt15l-orb tt15l-orb-two"></div>
 
-        <div>
-            <i id="v5-progress-bar"></i>
-        </div>
-    </div>
+            <div class="tt15l-hero-top">
 
-</div>
+                <span>03 / TINETECH LAB</span>
 
+                <span class="tt15l-status">
+                    <i></i>
+                    SYSTEM ONLINE
+                </span>
 
-<main class="v5-main v5-inner-main">
-
-
-<section
-    class="v5-scene v5-lab-hero"
-    data-state="EXPERIMENT">
-
-    <div class="v5-scene-number">
-        01
-    </div>
-
-    <div class="v5-scene-label">
-        TINETECH / EXPERIMENTAL LAB
-    </div>
-
-
-    <div class="v5-lab-hero-copy">
-
-        <div class="v5-kicker">
-            <i></i>
-            EXPERIMENTAL TECHNOLOGY
-        </div>
-
-        <h1>
-            <span>ENTER</span>
-            <span>THE</span>
-            <span class="v5-accent">LAB.</span>
-        </h1>
-
-        <p>
-            This is where ideas stop being
-            ideas and become systems,
-            experiments and working
-            prototypes.
-        </p>
-
-    </div>
-
-
-    <div class="v5-lab-reactor">
-
-        <div class="lab-ring lab-ring-one"></div>
-        <div class="lab-ring lab-ring-two"></div>
-        <div class="lab-ring lab-ring-three"></div>
-
-        <div class="lab-cross horizontal"></div>
-        <div class="lab-cross vertical"></div>
-
-        <div class="lab-core">
-            <span>T</span>
-            <small>LAB_01</small>
-        </div>
-
-        <div class="lab-pulse"></div>
-
-    </div>
-
-
-    <div class="v5-scroll-indicator">
-        <span>SCAN EXPERIMENTS</span>
-        <i></i>
-    </div>
-
-</section>
-
-
-<section
-    class="v5-scene v5-lab-projects"
-    data-state="PROJECTS">
-
-    <div class="v5-scene-number">
-        02
-    </div>
-
-
-    <div class="v5-lab-project-copy">
-
-        <span>02 / PROJECT MATRIX</span>
-
-        <h2>
-            IDEAS<br>
-            <em>UNDER</em><br>
-            CONSTRUCTION.
-        </h2>
-
-    </div>
-
-
-    <div class="v5-project-grid">
-
-        <article class="v5-project-card">
-
-            <div class="project-top">
-                <small>PROJECT_01</small>
-                <span>ACTIVE</span>
             </div>
 
-            <div class="project-icon">
-                &lt;/&gt;
+            <div class="tt15l-hero-content">
+
+                <div class="tt15l-eyebrow">
+                    EXPERIMENT / BUILD / DISCOVER
+                </div>
+
+                <h1>
+                    WE BUILD
+                    <span>WHAT'S NEXT.</span>
+                </h1>
+
+                <p>
+                    The Lab is where ideas escape the whiteboard.
+                    We prototype, experiment and explore new ways
+                    technology can work for people.
+                </p>
+
+                <div class="tt15l-scroll">
+                    <span></span>
+                    SCROLL TO EXPLORE
+                </div>
+
             </div>
 
-            <h3>PYTHON SYSTEMS</h3>
+            <div class="tt15l-hero-code">
 
-            <p>
-                Automation, tools and
-                experimental software.
-            </p>
+                <span>LAB://CORE</span>
 
-            <div class="project-footer">
-                <span>CODE</span>
-                <span>→</span>
+                <code>
+                    const future = explore();<br>
+                    future.build();<br>
+                    future.evolve();
+                </code>
+
+                <div class="tt15l-code-line"></div>
+
+                <small>
+                    EXPERIMENTAL SYSTEM / 015
+                </small>
+
             </div>
 
-        </article>
+        </section>
 
 
-        <article class="v5-project-card">
+        <!-- =====================================================
+             INTRO
+        ====================================================== -->
 
-            <div class="project-top">
-                <small>PROJECT_02</small>
-                <span>R&amp;D</span>
+        <section class="tt15l-intro">
+
+            <div class="tt15l-section-index">
+                01 / WHY THE LAB EXISTS
             </div>
 
-            <div class="project-icon">
-                AI
+            <div class="tt15l-intro-main">
+
+                <h2>
+                    CURIOSITY
+                    <span>NEEDS A PLACE.</span>
+                </h2>
+
+                <div class="tt15l-intro-copy">
+
+                    <p>
+                        Not every idea needs to become a product.
+                        Some ideas need room to breathe.
+                    </p>
+
+                    <p>
+                        We use the Lab to test concepts, explore
+                        emerging technology and discover unexpected
+                        solutions before they become real-world systems.
+                    </p>
+
+                </div>
+
             </div>
 
-            <h3>INTELLIGENCE</h3>
+        </section>
 
-            <p>
-                Exploring artificial intelligence
-                and human-computer interaction.
-            </p>
 
-            <div class="project-footer">
-                <span>AI</span>
-                <span>→</span>
+        <!-- =====================================================
+             EXPERIMENTS
+        ====================================================== -->
+
+        <section class="tt15l-experiments">
+
+            <div class="tt15l-experiments-head">
+
+                <div>
+                    <span class="tt15l-section-index">
+                        02 / ACTIVE EXPERIMENTS
+                    </span>
+
+                    <h2>
+                        CURRENT
+                        <span>EXPERIMENTS.</span>
+                    </h2>
+                </div>
+
+                <div class="tt15l-live-indicator">
+                    <i></i>
+                    LIVE RESEARCH
+                </div>
+
             </div>
 
-        </article>
+
+            <div class="tt15l-experiment-grid">
+
+                <!-- CARD 01 -->
+
+                <article class="tt15l-experiment-card tt15l-card-blue">
+
+                    <div class="tt15l-card-top">
+                        <span>EXP / 001</span>
+                        <span>ACTIVE</span>
+                    </div>
+
+                    <div class="tt15l-card-visual">
+
+                        <div class="tt15l-sphere">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="tt15l-card-scan"></div>
+
+                    </div>
+
+                    <div class="tt15l-card-bottom">
+
+                        <h3>
+                            DIGITAL
+                            <span>INTELLIGENCE</span>
+                        </h3>
+
+                        <p>
+                            Exploring smarter interfaces and
+                            intelligent digital experiences.
+                        </p>
+
+                        <div class="tt15l-card-tag">
+                            AI / UX / SYSTEMS
+                        </div>
+
+                    </div>
+
+                </article>
 
 
-        <article class="v5-project-card">
+                <!-- CARD 02 -->
 
-            <div class="project-top">
-                <small>PROJECT_03</small>
-                <span>BUILD</span>
+                <article class="tt15l-experiment-card tt15l-card-violet">
+
+                    <div class="tt15l-card-top">
+                        <span>EXP / 002</span>
+                        <span>RESEARCH</span>
+                    </div>
+
+                    <div class="tt15l-card-visual">
+
+                        <div class="tt15l-cube">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <div class="tt15l-cube-shadow"></div>
+
+                    </div>
+
+                    <div class="tt15l-card-bottom">
+
+                        <h3>
+                            3D
+                            <span>WEB WORLDS</span>
+                        </h3>
+
+                        <p>
+                            Turning websites into interactive
+                            spaces instead of static pages.
+                        </p>
+
+                        <div class="tt15l-card-tag">
+                            3D / WEB / MOTION
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 03 -->
+
+                <article class="tt15l-experiment-card tt15l-card-cyan">
+
+                    <div class="tt15l-card-top">
+                        <span>EXP / 003</span>
+                        <span>PROTOTYPE</span>
+                    </div>
+
+                    <div class="tt15l-card-visual">
+
+                        <div class="tt15l-rings">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="tt15l-crosshair"></div>
+
+                    </div>
+
+                    <div class="tt15l-card-bottom">
+
+                        <h3>
+                            FUTURE
+                            <span>INTERFACES</span>
+                        </h3>
+
+                        <p>
+                            New interaction models designed for
+                            faster and more natural digital work.
+                        </p>
+
+                        <div class="tt15l-card-tag">
+                            INTERACTION / UI / R&D
+                        </div>
+
+                    </div>
+
+                </article>
+
             </div>
 
-            <div class="project-icon">
-                ◇
+        </section>
+
+
+        <!-- =====================================================
+             SYSTEM VISUAL
+        ====================================================== -->
+
+        <section class="tt15l-system">
+
+            <div class="tt15l-system-background"></div>
+
+            <div class="tt15l-system-header">
+
+                <span class="tt15l-section-index">
+                    03 / INSIDE THE MACHINE
+                </span>
+
+                <span>
+                    NODE 001 — 127.0.0.1
+                </span>
+
             </div>
 
-            <h3>DIGITAL WORLDS</h3>
+            <div class="tt15l-system-layout">
 
-            <p>
-                Interfaces and environments
-                designed to feel alive.
-            </p>
+                <div class="tt15l-system-copy">
 
-            <div class="project-footer">
-                <span>DESIGN</span>
-                <span>→</span>
+                    <h2>
+                        THINK
+                        <span>DIFFERENTLY.</span>
+                    </h2>
+
+                    <p>
+                        We don't start with the technology.
+                        We start with the possibility.
+                    </p>
+
+                    <a href="/system" class="tt15l-system-link">
+                        EXPLORE THE SYSTEM
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+
+                <div class="tt15l-system-interface">
+
+                    <div class="tt15l-interface-top">
+
+                        <span>CORE PROCESS</span>
+
+                        <span>
+                            <i></i>
+                            RUNNING
+                        </span>
+
+                    </div>
+
+                    <div class="tt15l-interface-lines">
+
+                        <div>
+                            <span>INPUT</span>
+                            <b>IDEA</b>
+                        </div>
+
+                        <div>
+                            <span>PROCESS</span>
+                            <b>EXPERIMENT</b>
+                        </div>
+
+                        <div>
+                            <span>OUTPUT</span>
+                            <b>PROTOTYPE</b>
+                        </div>
+
+                        <div>
+                            <span>NEXT</span>
+                            <b>EVOLUTION</b>
+                        </div>
+
+                    </div>
+
+                    <div class="tt15l-interface-progress">
+
+                        <span></span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-        </article>
-
-    </div>
-
-</section>
+        </section>
 
 
-<section
-    class="v5-scene v5-lab-process"
-    data-state="PROCESS">
+        <!-- =====================================================
+             PHILOSOPHY
+        ====================================================== -->
 
-    <div class="v5-scene-number">
-        03
-    </div>
+        <section class="tt15l-philosophy">
 
-
-    <div class="v5-lab-process-copy">
-
-        <span>03 / EXPERIMENT LOOP</span>
-
-        <h2>
-            BUILD.<br>
-            TEST.<br>
-            <em>REPEAT.</em>
-        </h2>
-
-    </div>
-
-
-    <div class="v5-lab-loop">
-
-        <div class="loop-node node-one">
-            <small>01</small>
-            <strong>IDEA</strong>
-        </div>
-
-        <div class="loop-node node-two">
-            <small>02</small>
-            <strong>BUILD</strong>
-        </div>
-
-        <div class="loop-node node-three">
-            <small>03</small>
-            <strong>TEST</strong>
-        </div>
-
-        <div class="loop-node node-four">
-            <small>04</small>
-            <strong>EVOLVE</strong>
-        </div>
-
-        <div class="loop-orbit"></div>
-
-    </div>
-
-</section>
-
-
-<section
-    class="v5-scene v5-lab-interface"
-    data-state="INTERFACE">
-
-    <div class="v5-scene-number">
-        04
-    </div>
-
-
-    <div class="v5-interface-copy">
-
-        <span>04 / SYSTEM INTERFACE</span>
-
-        <h2>
-            MAKE<br>
-            <em>TECHNOLOGY</em><br>
-            FEEL ALIVE.
-        </h2>
-
-        <p>
-            Every experiment is an attempt to
-            create something that responds,
-            moves and communicates.
-        </p>
-
-    </div>
-
-
-    <div class="v5-terminal">
-
-        <div class="terminal-header">
-
-            <span>T!NΞ_TERMINAL</span>
-
-            <div>
-                <i></i>
-                <i></i>
-                <i></i>
+            <div class="tt15l-philosophy-index">
+                04 / LAB PHILOSOPHY
             </div>
 
-        </div>
+            <div class="tt15l-philosophy-content">
+
+                <div class="tt15l-philosophy-number">
+                    04
+                </div>
+
+                <h2>
+                    DON'T WAIT
+                    <span>FOR THE FUTURE.</span>
+                    BUILD IT.
+                </h2>
+
+            </div>
+
+        </section>
 
 
-        <div class="terminal-body">
+        <!-- =====================================================
+             PROCESS
+        ====================================================== -->
 
-            <span>&gt; INITIALIZING LAB...</span>
-            <span>&gt; LOADING EXPERIMENTS...</span>
-            <span>&gt; SYSTEMS READY</span>
-            <span class="terminal-active">
-                &gt; _
+        <section class="tt15l-process">
+
+            <div class="tt15l-process-head">
+
+                <span class="tt15l-section-index">
+                    05 / THE LOOP
+                </span>
+
+                <h2>
+                    EXPERIMENT.
+                    <span>REPEAT.</span>
+                </h2>
+
+            </div>
+
+            <div class="tt15l-process-grid">
+
+                <div class="tt15l-process-item">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>QUESTION</h3>
+                        <p>
+                            Find the interesting problem.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="tt15l-process-item">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>EXPLORE</h3>
+                        <p>
+                            Search for possibilities.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="tt15l-process-item">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>PROTOTYPE</h3>
+                        <p>
+                            Turn the concept into something real.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="tt15l-process-item">
+
+                    <span>04</span>
+
+                    <div>
+                        <h3>EVOLVE</h3>
+                        <p>
+                            Learn, improve and build again.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FINAL CTA
+        ====================================================== -->
+
+        <section class="tt15l-final">
+
+            <div class="tt15l-final-grid"></div>
+
+            <span class="tt15l-section-index">
+                06 / YOUR IDEA
             </span>
 
+            <h2>
+                GOT
+                <span>AN IDEA?</span>
+            </h2>
+
+            <p>
+                Bring it into the Lab.
+            </p>
+
+            <a href="/contact" class="tt15l-final-button">
+                START A PROJECT
+                <span>↗</span>
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="tt15l-footer">
+
+        <div class="tt15l-footer-main">
+
+            <a href="/" class="tt15l-logo">
+                <span class="tt15l-logo-mark">T</span>
+                <span>TineTech</span>
+            </a>
+
+            <div class="tt15l-footer-status">
+                <i></i>
+                TINETECH SYSTEMS ONLINE
+            </div>
+
         </div>
 
-    </div>
+        <div class="tt15l-footer-bottom">
 
-</section>
+            <span>© 2026 TineTech</span>
 
+            <div>
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/system">SYSTEM</a>
+                <a href="/contact">CONTACT</a>
+            </div>
 
-<section
-    class="v5-scene v5-lab-final"
-    data-state="NEXT EXPERIMENT">
+            <span>HARARE / ZIMBABWE</span>
 
-    <div class="v5-scene-number">
-        05
-    </div>
+        </div>
 
-
-    <div class="v5-lab-final-copy">
-
-        <span>05 / NEXT EXPERIMENT</span>
-
-        <h2>
-            WHAT<br>
-            WILL YOU
-            <em>BUILD?</em>
-        </h2>
-
-        <p>
-            The laboratory never really closes.
-        </p>
-
-        <a
-            href="/contact"
-            class="v5-button v5-magnetic">
-
-            <span>START SOMETHING</span>
-            <b>↗</b>
-
-        </a>
-
-    </div>
+    </footer>
 
 
-    <div class="v5-lab-final-core">
+    <!-- =========================================================
+         LAB INTERACTIONS
+    ========================================================== -->
 
-        <div></div>
-        <div></div>
-        <div></div>
+    <script>
+        (() => {
 
-        <span>T!NΞ</span>
-
-    </div>
-
-</section>
-
-
-</main>
+            const nav = document.getElementById("tt15lNav");
+            const menu = document.getElementById("tt15lMenu");
+            const navigation =
+                document.querySelector(".tt15l-navigation");
 
 
-<footer class="v5-footer">
+            /* NAVIGATION */
 
-    <span>© 2026 TineTech</span>
+            const updateNav = () => {
 
-    <span>
-        BUILD / BREAK / UNDERSTAND
-    </span>
+                if (!nav) return;
 
-    <span>
-        T!NΞ
-    </span>
+                nav.classList.toggle(
+                    "tt15l-nav-scrolled",
+                    window.scrollY > 30
+                );
 
-</footer>
+            };
+
+            window.addEventListener(
+                "scroll",
+                updateNav,
+                { passive: true }
+            );
+
+            updateNav();
 
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+            /* MOBILE MENU */
+
+            if (menu && navigation) {
+
+                menu.addEventListener("click", () => {
+
+                    menu.classList.toggle(
+                        "tt15l-menu-open"
+                    );
+
+                    navigation.classList.toggle(
+                        "tt15l-navigation-open"
+                    );
+
+                });
+
+                navigation
+                    .querySelectorAll("a")
+                    .forEach(link => {
+
+                        link.addEventListener("click", () => {
+
+                            menu.classList.remove(
+                                "tt15l-menu-open"
+                            );
+
+                            navigation.classList.remove(
+                                "tt15l-navigation-open"
+                            );
+
+                        });
+
+                    });
+
+            }
+
+
+            /* REVEAL */
+
+            const revealItems =
+                document.querySelectorAll(
+                    ".tt15l-intro-main, " +
+                    ".tt15l-experiment-card, " +
+                    ".tt15l-system-copy, " +
+                    ".tt15l-system-interface, " +
+                    ".tt15l-process-item, " +
+                    ".tt15l-final"
+                );
+
+            if ("IntersectionObserver" in window) {
+
+                const observer =
+                    new IntersectionObserver(
+                        entries => {
+
+                            entries.forEach(entry => {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target.classList.add(
+                                        "tt15l-visible"
+                                    );
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+
+                                }
+
+                            });
+
+                        },
+                        {
+                            threshold: 0.12
+                        }
+                    );
+
+                revealItems.forEach(item => {
+                    observer.observe(item);
+                });
+
+            } else {
+
+                revealItems.forEach(item => {
+                    item.classList.add(
+                        "tt15l-visible"
+                    );
+                });
+
+            }
+
+
+            /* EXPERIMENT CARD TILT */
+
+            const cards =
+                document.querySelectorAll(
+                    ".tt15l-experiment-card"
+                );
+
+            if (
+                window.matchMedia(
+                    "(pointer:fine)"
+                ).matches
+            ) {
+
+                cards.forEach(card => {
+
+                    card.addEventListener(
+                        "mousemove",
+                        event => {
+
+                            const rect =
+                                card.getBoundingClientRect();
+
+                            const x =
+                                event.clientX -
+                                rect.left;
+
+                            const y =
+                                event.clientY -
+                                rect.top;
+
+                            const rotateY =
+                                ((x / rect.width) - .5) * 8;
+
+                            const rotateX =
+                                ((y / rect.height) - .5) * -8;
+
+                            card.style.transform =
+                                `perspective(900px)
+                                 rotateX(${rotateX}deg)
+                                 rotateY(${rotateY}deg)
+                                 translateY(-6px)`;
+
+                        }
+                    );
+
+                    card.addEventListener(
+                        "mouseleave",
+                        () => {
+
+                            card.style.transform =
+                                "";
+
+                        }
+                    );
+
+                });
+
+            }
+
+
+            /* HERO PARALLAX */
+
+            const hero =
+                document.querySelector(
+                    ".tt15l-hero"
+                );
+
+            const orbs =
+                document.querySelectorAll(
+                    ".tt15l-orb"
+                );
+
+            if (
+                hero &&
+                window.matchMedia(
+                    "(pointer:fine)"
+                ).matches
+            ) {
+
+                hero.addEventListener(
+                    "mousemove",
+                    event => {
+
+                        const rect =
+                            hero.getBoundingClientRect();
+
+                        const x =
+                            (event.clientX -
+                            rect.left) /
+                            rect.width - .5;
+
+                        const y =
+                            (event.clientY -
+                            rect.top) /
+                            rect.height - .5;
+
+                        orbs.forEach(
+                            (orb, index) => {
+
+                                const amount =
+                                    index === 0
+                                    ? 24
+                                    : -18;
+
+                                orb.style.transform =
+                                    `translate(
+                                        ${x * amount}px,
+                                        ${y * amount}px
+                                    )`;
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* PROCESS HIGHLIGHT */
+
+            document
+                .querySelectorAll(
+                    ".tt15l-process-item"
+                )
+                .forEach(item => {
+
+                    item.addEventListener(
+                        "mouseenter",
+                        () => {
+
+                            document
+                                .querySelectorAll(
+                                    ".tt15l-process-item"
+                                )
+                                .forEach(other => {
+
+                                    other.classList.remove(
+                                        "tt15l-process-active"
+                                    );
+
+                                });
+
+                            item.classList.add(
+                                "tt15l-process-active"
+                            );
+
+                        }
+                    );
+
+                });
+
+        })();
+    </script>
 
 </body>
 </html>
