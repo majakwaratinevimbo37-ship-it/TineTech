@@ -1,34 +1,114 @@
 import os
+import time
+import threading
+from datetime import datetime
 
 import resend
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, jsonify, render_template, request
 
 
 app = Flask(__name__)
 
 
 # =========================================================
-# PRIVATE EMAIL CONFIGURATION
+# TINETECH CONFIGURATION
 # =========================================================
 
-OWNER_EMAIL = os.environ.get(
+OWNER_EMAIL = os.getenv(
     "OWNER_EMAIL",
     "majakwaratinevimbo37@gmail.com"
 )
 
-RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 
-# Resend provides this sender for testing.
-# For production/custom sending, this can later be replaced
-# with a verified TineTech domain.
-RESEND_FROM = os.environ.get(
+RESEND_FROM = os.getenv(
     "RESEND_FROM",
     "onboarding@resend.dev"
 )
 
 
 # =========================================================
-# WEBSITE PAGES
+# RESEND
+# =========================================================
+
+if RESEND_API_KEY:
+    resend.api_key = RESEND_API_KEY
+
+
+# =========================================================
+# ANONYMOUS VISITOR SYSTEM
+# =========================================================
+
+visitor_lock = threading.Lock()
+
+active_visitors = {}
+
+visitor_events = []
+
+MAX_EVENTS = 100
+
+VISITOR_TIMEOUT = 45
+
+
+def current_time():
+    return datetime.now().strftime(
+        "%Y-%m-%d %H:%M:%S"
+    )
+
+
+def cleanup_visitors():
+    now = time.time()
+
+    expired = []
+
+    with visitor_lock:
+
+        for session_id, visitor in list(
+            active_visitors.items()
+        ):
+
+            if now - visitor["last_seen"] > VISITOR_TIMEOUT:
+
+                expired.append(visitor)
+
+                del active_visitors[session_id]
+
+                visitor_events.insert(
+                    0,
+                    {
+                        "type": "EXITED",
+                        "session": session_id[:8],
+                        "page": visitor["page"],
+                        "time": current_time()
+                    }
+                )
+
+        del visitor_events[MAX_EVENTS:]
+
+
+def record_event(
+    event_type,
+    session_id,
+    page
+):
+
+    event = {
+        "type": event_type,
+        "session": session_id[:8],
+        "page": page,
+        "time": current_time()
+    }
+
+    visitor_events.insert(
+        0,
+        event
+    )
+
+    del visitor_events[MAX_EVENTS:]
+
+
+# =========================================================
+# PAGE ROUTES
 # =========================================================
 
 @app.route("/")
@@ -57,323 +137,376 @@ def contact():
 
 
 # =========================================================
-# CONTACT API
+# CONTACT / RESEND SYSTEM
 # =========================================================
 
-@app.route("/api/contact", methods=["POST"])
-def api_contact():
+@app.route(
+    "/api/contact",
+    methods=["POST"]
+)
+def contact_api():
+
+    data = request.get_json(
+        silent=True
+    ) or {}
+
+    name = str(
+        data.get("name", "")
+    ).strip()
+
+    email = str(
+        data.get("email", "")
+    ).strip()
+
+    project = str(
+        data.get("project", "")
+    ).strip()
+
+    message = str(
+        data.get("message", "")
+    ).strip()
+
+    if not name:
+        return jsonify({
+            "success": False,
+            "error": "Name is required."
+        }), 400
+
+    if not email:
+        return jsonify({
+            "success": False,
+            "error": "Email is required."
+        }), 400
+
+    if not project:
+        return jsonify({
+            "success": False,
+            "error": "Project is required."
+        }), 400
+
+    if not message:
+        return jsonify({
+            "success": False,
+            "error": "Message is required."
+        }), 400
+
+    if not RESEND_API_KEY:
+
+        return jsonify({
+            "success": False,
+            "error": "Email service is not configured."
+        }), 500
 
     try:
 
-        # -------------------------------------------------
-        # CHECK RESEND CONFIGURATION
-        # -------------------------------------------------
-
-        if not RESEND_API_KEY:
-            print("EMAIL ERROR: RESEND_API_KEY is missing.")
-
-            return jsonify({
-                "error": "Email system is not configured yet."
-            }), 500
-
-
-        # -------------------------------------------------
-        # READ FORM DATA
-        # -------------------------------------------------
-
-        data = request.get_json(silent=True)
-
-        if not data:
-            return jsonify({
-                "error": "Invalid request."
-            }), 400
-
-
-        name = str(
-            data.get("name", "")
-        ).strip()
-
-        sender_email = str(
-            data.get("email", "")
-        ).strip()
-
-        project = str(
-            data.get("project", "")
-        ).strip()
-
-        message = str(
-            data.get("message", "")
-        ).strip()
-
-
-        # -------------------------------------------------
-        # VALIDATION
-        # -------------------------------------------------
-
-        if not name:
-            return jsonify({
-                "error": "Please enter your name."
-            }), 400
-
-        if not sender_email:
-            return jsonify({
-                "error": "Please enter your email."
-            }), 400
-
-        if not project:
-            return jsonify({
-                "error": "Please select a project type."
-            }), 400
-
-        if not message:
-            return jsonify({
-                "error": "Please enter your message."
-            }), 400
-
-
-        if len(name) > 100:
-            return jsonify({
-                "error": "Name is too long."
-            }), 400
-
-        if len(sender_email) > 150:
-            return jsonify({
-                "error": "Email is too long."
-            }), 400
-
-        if len(message) > 5000:
-            return jsonify({
-                "error": "Message is too long."
-            }), 400
-
-
-        # -------------------------------------------------
-        # CONNECT TO RESEND
-        # -------------------------------------------------
-
-        resend.api_key = RESEND_API_KEY
-
-
-        # -------------------------------------------------
-        # EMAIL CONTENT
-        # -------------------------------------------------
-
-        email_params = {
+        resend.Emails.send({
             "from": RESEND_FROM,
-
-            "to": [
-                OWNER_EMAIL
-            ],
-
-            "reply_to": sender_email,
-
+            "to": [OWNER_EMAIL],
+            "reply_to": email,
             "subject": (
                 f"TineTech Project Inquiry — {project}"
             ),
-
             "html": f"""
-<!DOCTYPE html>
+                <h2>New TineTech Project Inquiry</h2>
 
-<html>
+                <p>
+                    <strong>Name:</strong>
+                    {name}
+                </p>
 
-<head>
-    <meta charset="UTF-8">
-    <title>TineTech Project Inquiry</title>
-</head>
+                <p>
+                    <strong>Email:</strong>
+                    {email}
+                </p>
 
-<body
-    style="
-        margin:0;
-        padding:40px;
-        background:#f4f4f0;
-        font-family:Arial,Helvetica,sans-serif;
-        color:#111;
-    "
->
+                <p>
+                    <strong>Project:</strong>
+                    {project}
+                </p>
 
-    <div
-        style="
-            max-width:700px;
-            margin:0 auto;
-            background:#ffffff;
-            padding:40px;
-            border-radius:16px;
-        "
-    >
+                <hr>
 
-        <div
-            style="
-                font-size:13px;
-                letter-spacing:2px;
-                font-weight:bold;
-                margin-bottom:30px;
-            "
-        >
-            TINETECH
-        </div>
+                <p>
+                    <strong>Message:</strong>
+                </p>
 
-
-        <h1
-            style="
-                margin:0 0 30px 0;
-                font-size:32px;
-            "
-        >
-            New Project Inquiry
-        </h1>
-
-
-        <div
-            style="
-                padding:20px;
-                background:#f5f5f5;
-                border-radius:12px;
-                margin-bottom:20px;
-            "
-        >
-
-            <strong>NAME</strong>
-
-            <p>
-                {name}
-            </p>
-
-
-            <strong>EMAIL</strong>
-
-            <p>
-                {sender_email}
-            </p>
-
-
-            <strong>PROJECT</strong>
-
-            <p>
-                {project}
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <strong>MESSAGE</strong>
-
-            <p
-                style="
-                    line-height:1.7;
-                    white-space:pre-wrap;
-                "
-            >
-                {message}
-            </p>
-
-        </div>
-
-
-        <hr
-            style="
-                margin:35px 0;
-                border:0;
-                border-top:1px solid #ddd;
-            "
-        >
-
-
-        <p
-            style="
-                font-size:12px;
-                color:#777;
-            "
-        >
-            Sent through the private TineTech website
-            communication system.
-        </p>
-
-    </div>
-
-</body>
-
-</html>
-"""
-        }
-
-
-        # -------------------------------------------------
-        # SEND EMAIL
-        # -------------------------------------------------
-
-        response = resend.Emails.send(
-            email_params
-        )
-
-
-        print(
-            "EMAIL SUCCESS: "
-            "TineTech contact message sent through Resend."
-        )
-
-        print(
-            "RESEND RESPONSE:",
-            response
-        )
-
+                <p>
+                    {message.replace(chr(10), "<br>")}
+                </p>
+            """
+        })
 
         return jsonify({
-            "success": True,
-            "message": "Message sent successfully."
-        }), 200
-
-
-    # -----------------------------------------------------
-    # RESEND ERROR
-    # -----------------------------------------------------
+            "success": True
+        })
 
     except Exception as error:
 
         print(
-            "EMAIL ERROR: Resend request failed."
-        )
-
-        print(
-            "ERROR:",
+            "Resend error:",
             error
         )
 
         return jsonify({
-            "error": (
-                "Unable to send your message right now."
-            )
+            "success": False,
+            "error": "Unable to send message."
         }), 500
 
 
 # =========================================================
-# 404
+# VISITOR ENTER
 # =========================================================
 
-@app.errorhandler(404)
-def page_not_found(error):
+@app.route(
+    "/api/visitor/enter",
+    methods=["POST", "OPTIONS"]
+)
+def visitor_enter():
 
-    return render_template(
-        "404.html"
-    ), 404
+    if request.method == "OPTIONS":
+        response = jsonify({})
+        response.headers["Access-Control-Allow-Origin"] = "*"
+        response.headers[
+            "Access-Control-Allow-Headers"
+        ] = "Content-Type"
+        return response
+
+    data = request.get_json(
+        silent=True
+    ) or {}
+
+    session_id = str(
+        data.get("session_id", "")
+    ).strip()
+
+    page = str(
+        data.get("page", "/")
+    ).strip()
+
+    if not session_id:
+        return jsonify({
+            "success": False
+        }), 400
+
+    with visitor_lock:
+
+        active_visitors[session_id] = {
+            "page": page,
+            "started": time.time(),
+            "last_seen": time.time()
+        }
+
+        record_event(
+            "ENTERED",
+            session_id,
+            page
+        )
+
+    response = jsonify({
+        "success": True,
+        "status": "ENTERED"
+    })
+
+    response.headers[
+        "Access-Control-Allow-Origin"
+    ] = "*"
+
+    return response
 
 
 # =========================================================
-# SERVER
+# VISITOR HEARTBEAT
+# =========================================================
+
+@app.route(
+    "/api/visitor/pulse",
+    methods=["POST", "OPTIONS"]
+)
+def visitor_pulse():
+
+    if request.method == "OPTIONS":
+        response = jsonify({})
+        response.headers[
+            "Access-Control-Allow-Origin"
+        ] = "*"
+        return response
+
+    data = request.get_json(
+        silent=True
+    ) or {}
+
+    session_id = str(
+        data.get("session_id", "")
+    ).strip()
+
+    page = str(
+        data.get("page", "/")
+    ).strip()
+
+    if not session_id:
+        return jsonify({
+            "success": False
+        }), 400
+
+    with visitor_lock:
+
+        visitor = active_visitors.get(
+            session_id
+        )
+
+        if visitor:
+
+            visitor["last_seen"] = time.time()
+            visitor["page"] = page
+
+        else:
+
+            active_visitors[session_id] = {
+                "page": page,
+                "started": time.time(),
+                "last_seen": time.time()
+            }
+
+            record_event(
+                "ENTERED",
+                session_id,
+                page
+            )
+
+    response = jsonify({
+        "success": True,
+        "status": "ACTIVE"
+    })
+
+    response.headers[
+        "Access-Control-Allow-Origin"
+    ] = "*"
+
+    return response
+
+
+# =========================================================
+# VISITOR EXIT
+# =========================================================
+
+@app.route(
+    "/api/visitor/leave",
+    methods=["POST", "OPTIONS"]
+)
+def visitor_leave():
+
+    if request.method == "OPTIONS":
+        response = jsonify({})
+        response.headers[
+            "Access-Control-Allow-Origin"
+        ] = "*"
+        return response
+
+    data = request.get_json(
+        silent=True
+    ) or {}
+
+    session_id = str(
+        data.get("session_id", "")
+    ).strip()
+
+    page = str(
+        data.get("page", "/")
+    ).strip()
+
+    if not session_id:
+        return jsonify({
+            "success": False
+        }), 400
+
+    with visitor_lock:
+
+        visitor = active_visitors.pop(
+            session_id,
+            None
+        )
+
+        if visitor:
+            page = visitor["page"]
+
+        record_event(
+            "EXITED",
+            session_id,
+            page
+        )
+
+    response = jsonify({
+        "success": True,
+        "status": "EXITED"
+    })
+
+    response.headers[
+        "Access-Control-Allow-Origin"
+    ] = "*"
+
+    return response
+
+
+# =========================================================
+# VISITOR TELEMETRY
+# =========================================================
+
+@app.route(
+    "/api/visitors",
+    methods=["GET"]
+)
+def visitors_api():
+
+    cleanup_visitors()
+
+    with visitor_lock:
+
+        visitors = []
+
+        for session_id, visitor in (
+            active_visitors.items()
+        ):
+
+            visitors.append({
+                "session": session_id[:8],
+                "page": visitor["page"],
+                "duration": round(
+                    time.time()
+                    - visitor["started"]
+                )
+            })
+
+        events = list(
+            visitor_events[:50]
+        )
+
+    response = jsonify({
+        "success": True,
+        "active_count": len(visitors),
+        "visitors": visitors,
+        "events": events,
+        "server_time": current_time()
+    })
+
+    response.headers[
+        "Access-Control-Allow-Origin"
+    ] = "*"
+
+    return response
+
+
+# =========================================================
+# RUN
 # =========================================================
 
 if __name__ == "__main__":
 
     app.run(
         host="0.0.0.0",
-
         port=int(
-            os.environ.get(
+            os.getenv(
                 "PORT",
                 5000
             )
-        ),
-
-        debug=True
+        )
     )
