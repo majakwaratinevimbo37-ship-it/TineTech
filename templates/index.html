@@ -1,1031 +1,316 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TineTech — Technology Without Limits</title>
-
-    <meta
-        name="description"
-        content="TineTech builds intelligent digital experiences, automation and technology systems."
-    >
-
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="{{ url_for('static', filename='favicon.svg') }}"
-    >
-
-    <!-- GLOBAL STYLES -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
-
-    <!-- HOMEPAGE V20 -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='home-v16.css') }}"
-    >
-</head>
-
-
-<body class="tt-home">
-
-
-    <!-- =====================================================
-         CURSOR
-    ====================================================== -->
-
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-
-
-    <!-- =====================================================
-         NAVIGATION
-    ====================================================== -->
-
-    <header class="nav">
-
-        <a href="/" class="logo">
-
-            <span class="logo-mark">
-                T
-            </span>
-
-            TINETECH
-
-        </a>
-
-
-        <nav class="desktop-nav">
-
-            <a href="/" class="active">
-                HOME
-            </a>
-
-            <a href="/about">
-                ABOUT
-            </a>
-
-            <a href="/lab">
-                LAB
-            </a>
-
-            <a href="/system">
-                SYSTEM
-            </a>
-
-            <a href="/contact">
-                CONTACT
-            </a>
-
-        </nav>
-
-
-        <a href="/contact" class="nav-project">
-            START A PROJECT
-            <span>↗</span>
-        </a>
-
-
-        <button
-            class="menu-button"
-            aria-label="Open menu"
-            type="button"
-        >
-            <span></span>
-            <span></span>
-        </button>
-
-    </header>
-
-
-    <!-- =====================================================
-         MOBILE MENU
-    ====================================================== -->
-
-    <div class="mobile-menu">
-
-        <div class="mobile-menu-inner">
-
-            <div class="mobile-label">
-                TINETECH / NAVIGATION
-            </div>
-
-            <a href="/">
-                HOME
-                <span>01</span>
-            </a>
-
-            <a href="/about">
-                ABOUT
-                <span>02</span>
-            </a>
-
-            <a href="/lab">
-                LAB
-                <span>03</span>
-            </a>
-
-            <a href="/system">
-                SYSTEM
-                <span>04</span>
-            </a>
-
-            <a href="/contact">
-                CONTACT
-                <span>05</span>
-            </a>
-
-            <a href="/contact" class="mobile-cta">
-                START A PROJECT
-                ↗
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         SIDE PROGRESS
-    ====================================================== -->
-
-    <div class="side-progress">
-
-        <div class="progress-line">
-            <span></span>
-        </div>
-
-        <div class="progress-number">
-            01 / <span>06</span>
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <section class="hero">
-
-        <div class="hero-grid"></div>
-
-        <div class="hero-glow glow-one"></div>
-        <div class="hero-glow glow-two"></div>
-
-
-        <div class="hero-content">
-
-            <div class="eyebrow">
-
-                <span class="status-dot"></span>
-
-                TINETECH / DIGITAL TECHNOLOGY
-
-            </div>
-
-
-            <h1>
-                BUILDING
-                <span>WHAT'S NEXT.</span>
-            </h1>
-
-
-            <div class="hero-bottom">
-
-                <p>
-                    Intelligent technology, immersive digital
-                    experiences and systems designed to move
-                    ideas into reality.
+{% extends "base.html" %}
+
+{% block title %}TineTech — Websites & Web Apps That Move You Forward{% endblock %}
+{% block description %}TineTech designs and builds fast, clean websites and web apps for businesses that want to grow. Start your project today.{% endblock %}
+
+{% block content %}
+
+<!-- =====================================================
+     HERO
+     ====================================================== -->
+<section class="tt-hero">
+    <div class="tt-container">
+        <div class="tt-hero__grid">
+
+            <div class="tt-hero__text tt-reveal">
+
+                <span class="tt-hero__tag">
+                    <i></i>
+                    Available for new projects
+                </span>
+
+                <h1 class="tt-h1">
+                    Websites &amp; web apps,<br>
+                    built to move you forward.
+                </h1>
+
+                <p class="tt-lead">
+                    TineTech designs and builds fast, clean digital
+                    products for businesses that want to look sharp
+                    and work smarter.
                 </p>
 
-
-                <a href="/contact" class="hero-button">
-
-                    START A PROJECT
-
-                    <span>↗</span>
-
-                </a>
+                <div class="tt-hero__actions">
+                    <a href="/contact" class="tt-btn tt-btn--primary">
+                        Start a project
+                        <span>→</span>
+                    </a>
+                    <a href="/services" class="tt-btn tt-btn--ghost">
+                        See services
+                    </a>
+                </div>
 
             </div>
 
-        </div>
-
-
-        <div class="hero-visual">
-
-            <div class="image-frame">
-
-                <!--
-                    If you already have a hero image,
-                    replace this filename only.
-                -->
+            <div class="tt-hero__visual tt-reveal">
 
                 <img
-                    src="{{ url_for('static', filename='favicon.svg') }}"
-                    alt="TineTech"
+                    src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80"
+                    alt="Clean digital workspace"
+                    loading="eager"
                 >
 
-                <div class="image-overlay"></div>
+                <div class="tt-hero__float tt-hero__float--a">
+                    <small>Status</small>
+                    Live &amp; shipping
+                </div>
 
-                <div class="image-label">
-
-                    <span>
-                        TINETECH / 2026
-                    </span>
-
-                    <strong>
-                        TECHNOLOGY
-                    </strong>
-
+                <div class="tt-hero__float tt-hero__float--b">
+                    <small>Focus</small>
+                    Websites · Web Apps
                 </div>
 
             </div>
 
         </div>
+    </div>
+</section>
 
 
-        <div class="scroll-hint">
+<!-- =====================================================
+     SERVICES PREVIEW
+     ====================================================== -->
+<section class="tt-section">
+    <div class="tt-container">
 
-            <span>
-                SCROLL TO EXPLORE
-            </span>
-
-            <div></div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MARQUEE
-    ====================================================== -->
-
-    <section class="marquee">
-
-        <div class="marquee-track">
-
-            <span>TECHNOLOGY</span>
-            <i>✦</i>
-
-            <span>DESIGN</span>
-            <i>✦</i>
-
-            <span>AUTOMATION</span>
-            <i>✦</i>
-
-            <span>SYSTEMS</span>
-            <i>✦</i>
-
-            <span>EXPERIENCES</span>
-            <i>✦</i>
-
-            <span>TECHNOLOGY</span>
-            <i>✦</i>
-
-            <span>DESIGN</span>
-            <i>✦</i>
-
-            <span>AUTOMATION</span>
-            <i>✦</i>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
-
-    <section class="intro reveal">
-
-        <div class="section-meta">
-
-            <span class="section-number">
-                01 / INTRO
-            </span>
-
-            <span class="section-label">
-                THE TINETECH IDEA
-            </span>
-
-        </div>
-
-
-        <div class="intro-content">
-
-            <div class="intro-label">
-                TECHNOLOGY SHOULD FEEL ALIVE.
+        <div class="tt-head tt-reveal">
+            <div>
+                <span class="tt-eyebrow">What we do</span>
+                <h2 class="tt-h2">
+                    Two things. Done really well.
+                </h2>
             </div>
-
-
-            <h2>
-                WE BUILD
-                <span>WHAT OTHERS IMAGINE.</span>
-            </h2>
-
-
-            <div class="intro-bottom">
-
-                <p>
-                    TineTech combines technology, design,
-                    automation and experimentation to create
-                    digital experiences that feel different
-                    from ordinary software.
+            <div class="tt-head__right">
+                <p class="tt-text">
+                    No bloated retainers. No vague deliverables.
+                    You get a website or a web app — designed,
+                    built, and shipped properly.
                 </p>
+            </div>
+        </div>
 
+        <div class="tt-services">
 
-                <a href="/about" class="text-link">
-
-                    DISCOVER TINETECH
-
-                    <span>↗</span>
-
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">&lt;/&gt;</div>
+                <h3>Websites</h3>
+                <p>
+                    Marketing sites, portfolios, and landing pages
+                    that load fast, look sharp, and convert visitors
+                    into customers.
+                </p>
+                <a href="/services" class="tt-service__link">
+                    Learn more <span>→</span>
                 </a>
+            </article>
 
-            </div>
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">{ }</div>
+                <h3>Web Apps</h3>
+                <p>
+                    Dashboards, tools, and internal systems built
+                    with modern frameworks — reliable, scalable,
+                    and easy to use.
+                </p>
+                <a href="/services" class="tt-service__link">
+                    Learn more <span>→</span>
+                </a>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">↻</div>
+                <h3>Redesigns</h3>
+                <p>
+                    Already have a site? We rebuild it cleaner,
+                    faster, and easier to manage — without losing
+                    what already works.
+                </p>
+                <a href="/services" class="tt-service__link">
+                    Learn more <span>→</span>
+                </a>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">∞</div>
+                <h3>Ongoing support</h3>
+                <p>
+                    Updates, fixes, and improvements after launch.
+                    Your site stays fast, secure, and current.
+                </p>
+                <a href="/services" class="tt-service__link">
+                    Learn more <span>→</span>
+                </a>
+            </article>
 
         </div>
 
-    </section>
+    </div>
+</section>
 
 
-    <!-- =====================================================
-         SERVICES
-    ====================================================== -->
+<!-- =====================================================
+     FEATURED WORK
+     ====================================================== -->
+<section class="tt-section tt-section--alt">
+    <div class="tt-container">
 
-    <section class="services reveal">
-
-        <div class="section-heading">
-
+        <div class="tt-head tt-reveal">
             <div>
-
-                <span class="section-number">
-                    02 / SERVICES
-                </span>
-
-                <span class="section-label">
-                    WHAT WE BUILD
-                </span>
-
+                <span class="tt-eyebrow">Selected work</span>
+                <h2 class="tt-h2">
+                    Built for real goals.
+                </h2>
             </div>
-
-
-            <h2>
-                FOUR
-                <span>DIRECTIONS.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="services-list">
-
-
-            <!-- AI & AUTOMATION -->
-
-            <a href="/contact" class="service-card">
-
-                <div class="service-number">
-                    01
-                </div>
-
-
-                <div class="service-main">
-
-                    <div class="service-tag">
-                        INTELLIGENCE
-                    </div>
-
-
-                    <h3>
-                        AI & AUTOMATION
-                    </h3>
-
-
-                    <p>
-                        Intelligent workflows, automation
-                        and AI-powered solutions.
-                    </p>
-
-                </div>
-
-
-                <div class="service-arrow">
-                    ↗
-                </div>
-
-            </a>
-
-
-            <!-- WEB EXPERIENCES -->
-
-            <a href="/about" class="service-card">
-
-                <div class="service-number">
-                    02
-                </div>
-
-
-                <div class="service-main">
-
-                    <div class="service-tag">
-                        EXPERIENCE
-                    </div>
-
-
-                    <h3>
-                        WEB EXPERIENCES
-                    </h3>
-
-
-                    <p>
-                        Cinematic websites and digital
-                        experiences designed to stand apart.
-                    </p>
-
-                </div>
-
-
-                <div class="service-arrow">
-                    ↗
-                </div>
-
-            </a>
-
-
-            <!-- DIGITAL SYSTEMS -->
-
-            <a href="/system" class="service-card">
-
-                <div class="service-number">
-                    03
-                </div>
-
-
-                <div class="service-main">
-
-                    <div class="service-tag">
-                        INFRASTRUCTURE
-                    </div>
-
-
-                    <h3>
-                        DIGITAL SYSTEMS
-                    </h3>
-
-
-                    <p>
-                        Connected systems designed to
-                        organize and power digital operations.
-                    </p>
-
-                </div>
-
-
-                <div class="service-arrow">
-                    ↗
-                </div>
-
-            </a>
-
-
-            <!-- CREATIVE TECHNOLOGY -->
-
-            <a href="/lab" class="service-card">
-
-                <div class="service-number">
-                    04
-                </div>
-
-
-                <div class="service-main">
-
-                    <div class="service-tag">
-                        EXPERIMENTATION
-                    </div>
-
-
-                    <h3>
-                        CREATIVE TECHNOLOGY
-                    </h3>
-
-
-                    <p>
-                        Experimental ideas, prototypes and
-                        technology pushed beyond the ordinary.
-                    </p>
-
-                </div>
-
-
-                <div class="service-arrow">
-                    ↗
-                </div>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         VISUAL BREAK
-    ====================================================== -->
-
-    <section class="visual-break">
-
-        <div class="visual-overlay"></div>
-
-        <div class="visual-text">
-
-            <span>
-                TINETECH / BEYOND THE ORDINARY
-            </span>
-
-            <h2>
-                CREATE
-                <span>EVOLVE.</span>
-            </h2>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         EXPERIENCE
-    ====================================================== -->
-
-    <section class="experience reveal">
-
-        <div class="section-meta">
-
-            <span class="section-number">
-                03 / EXPERIENCE
-            </span>
-
-            <span class="section-label">
-                THE APPROACH
-            </span>
-
-        </div>
-
-
-        <div class="experience-layout">
-
-            <h2>
-                NOT JUST
-                <span>A WEBSITE.</span>
-            </h2>
-
-
-            <div class="experience-copy">
-
-                <p>
-                    Every interaction should have a reason.
-                    Every transition should communicate
-                    something. Every system should make the
-                    experience better.
+            <div class="tt-head__right">
+                <p class="tt-text">
+                    A few recent projects. Every one shipped on time
+                    and still running today.
                 </p>
-
-
-                <div class="principles">
-
-                    <div>
-
-                        <span>01</span>
-
-                        <strong>
-                            INTENTIONAL DESIGN
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>02</span>
-
-                        <strong>
-                            INTELLIGENT SYSTEMS
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>03</span>
-
-                        <strong>
-                            HUMAN EXPERIENCE
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>04</span>
-
-                        <strong>
-                            CONSTANT EVOLUTION
-                        </strong>
-
-                    </div>
-
-                </div>
-
             </div>
+        </div>
+
+        <div class="tt-services">
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">01</div>
+                <h3>Business site</h3>
+                <p>
+                    A clean multi-page site for a local service
+                    business — built to rank, convert, and be
+                    updated without a developer.
+                </p>
+                <a href="/work" class="tt-service__link">
+                    View project <span>→</span>
+                </a>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">02</div>
+                <h3>Booking web app</h3>
+                <p>
+                    A lightweight scheduling tool with client
+                    accounts, reminders, and a simple admin
+                    dashboard.
+                </p>
+                <a href="/work" class="tt-service__link">
+                    View project <span>→</span>
+                </a>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">03</div>
+                <h3>Portfolio refresh</h3>
+                <p>
+                    A redesign that cut load time in half and gave
+                    the owner a site they're proud to share.
+                </p>
+                <a href="/work" class="tt-service__link">
+                    View project <span>→</span>
+                </a>
+            </article>
 
         </div>
 
-    </section>
+    </div>
+</section>
 
 
-    <!-- =====================================================
-         PROCESS
-    ====================================================== -->
+<!-- =====================================================
+     PROCESS
+     ====================================================== -->
+<section class="tt-section">
+    <div class="tt-container">
 
-    <section class="process reveal">
-
-        <div class="section-heading">
-
+        <div class="tt-head tt-reveal">
             <div>
+                <span class="tt-eyebrow">How it works</span>
+                <h2 class="tt-h2">
+                    Simple process. No surprises.
+                </h2>
+            </div>
+            <div class="tt-head__right">
+                <p class="tt-text">
+                    Four steps. Clear timeline. You always know
+                    what's happening and what comes next.
+                </p>
+            </div>
+        </div>
 
-                <span class="section-number">
-                    04 / PROCESS
-                </span>
+        <div class="tt-process tt-reveal">
 
-                <span class="section-label">
-                    HOW WE BUILD
-                </span>
-
+            <div class="tt-process__step">
+                <span class="tt-process__num">01</span>
+                <h3>Discover</h3>
+                <p>
+                    We talk through your goals, audience, and
+                    what success actually looks like.
+                </p>
             </div>
 
+            <div class="tt-process__step">
+                <span class="tt-process__num">02</span>
+                <h3>Design</h3>
+                <p>
+                    You see layouts before a single line of code
+                    is written. Feedback is built in.
+                </p>
+            </div>
 
-            <h2>
-                IDEA
-                <span>TO SYSTEM.</span>
+            <div class="tt-process__step">
+                <span class="tt-process__num">03</span>
+                <h3>Build</h3>
+                <p>
+                    Clean, modern code. Fast. Responsive.
+                    Ready for real-world traffic.
+                </p>
+            </div>
+
+            <div class="tt-process__step">
+                <span class="tt-process__num">04</span>
+                <h3>Launch</h3>
+                <p>
+                    We ship it, test it, and hand it over — with
+                    support available if you need it.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+     ====================================================== -->
+<section class="tt-cta tt-section--dark">
+    <div class="tt-container">
+
+        <div class="tt-reveal">
+            <span class="tt-eyebrow">Ready when you are</span>
+
+            <h2 class="tt-h2">
+                Let's build something<br>
+                worth sharing.
             </h2>
 
-        </div>
-
-
-        <div class="process-grid">
-
-
-            <article class="process-card active">
-
-                <span>
-                    01
-                </span>
-
-                <h3>
-                    DISCOVER
-                </h3>
-
-                <p>
-                    Understand the problem, opportunity
-                    and direction.
-                </p>
-
-                <b>
-                    ↗
-                </b>
-
-            </article>
-
-
-            <article class="process-card">
-
-                <span>
-                    02
-                </span>
-
-                <h3>
-                    DESIGN
-                </h3>
-
-                <p>
-                    Turn the idea into a clear digital
-                    experience.
-                </p>
-
-                <b>
-                    ↗
-                </b>
-
-            </article>
-
-
-            <article class="process-card">
-
-                <span>
-                    03
-                </span>
-
-                <h3>
-                    BUILD
-                </h3>
-
-                <p>
-                    Engineer the technology and systems
-                    behind the experience.
-                </p>
-
-                <b>
-                    ↗
-                </b>
-
-            </article>
-
-
-            <article class="process-card">
-
-                <span>
-                    04
-                </span>
-
-                <h3>
-                    EVOLVE
-                </h3>
-
-                <p>
-                    Improve, expand and adapt as the
-                    system grows.
-                </p>
-
-                <b>
-                    ↗
-                </b>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         TECHNOLOGY
-    ====================================================== -->
-
-    <section class="technology reveal">
-
-        <div class="section-meta">
-
-            <span class="section-number">
-                05 / TECHNOLOGY
-            </span>
-
-            <span class="section-label">
-                THE ENGINE
-            </span>
-
-        </div>
-
-
-        <div class="technology-heading">
-
-            <h2>
-                THE STACK
-                <span>IS ONLY THE BEGINNING.</span>
-            </h2>
-
-
-            <p>
-                Technology is the tool.
-                The experience is the result.
+            <p class="tt-lead" style="margin-left:auto;margin-right:auto;">
+                Tell us about your project. We'll tell you
+                honestly whether we're the right fit.
             </p>
 
-        </div>
-
-
-        <div class="technology-grid">
-
-
-            <article class="technology-card">
-
-                <span>
-                    01 / ENGINE
-                </span>
-
-                <h3>
-                    PYTHON
-                </h3>
-
-                <p>
-                    Automation, backend systems
-                    and intelligent infrastructure.
-                </p>
-
-                <div>
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article class="technology-card">
-
-                <span>
-                    02 / WEB
-                </span>
-
-                <h3>
-                    FLASK
-                </h3>
-
-                <p>
-                    Lightweight systems and
-                    powerful web applications.
-                </p>
-
-                <div>
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article class="technology-card">
-
-                <span>
-                    03 / EXPERIENCE
-                </span>
-
-                <h3>
-                    WEB
-                </h3>
-
-                <p>
-                    Interfaces designed to feel
-                    alive and responsive.
-                </p>
-
-                <div>
-                    ↗
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FINAL CTA
-    ====================================================== -->
-
-    <section class="final-cta reveal">
-
-        <div class="cta-grid"></div>
-
-
-        <div class="cta-content">
-
-            <span>
-                READY WHEN YOU ARE
-            </span>
-
-
-            <h2>
-                LET'S BUILD
-                <em>SOMETHING.</em>
-            </h2>
-
-
-            <p>
-                Have an idea, problem or system that needs
-                to become real?
-            </p>
-
-
-            <a href="/contact" class="cta-button">
-
-                CONTACT TINETECH
-
-                <span>
-                    ↗
-                </span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="footer">
-
-        <div class="footer-top">
-
-            <a href="/" class="footer-logo">
-
-                <span>
-                    T
-                </span>
-
-                TINETECH
-
-            </a>
-
-
-            <div class="footer-statement">
-
-                TECHNOLOGY
-                <br>
-
-                <span>WITHOUT LIMITS.</span>
-
+            <div class="tt-cta__actions">
+                <a href="/contact" class="tt-btn tt-btn--accent">
+                    Start a project
+                    <span>→</span>
+                </a>
+                <a href="/services" class="tt-btn tt-btn--ghost">
+                    See services
+                </a>
             </div>
-
         </div>
 
+    </div>
+</section>
 
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 TINETECH
-            </span>
-
-
-            <div>
-
-                <a href="/about">
-                    ABOUT
-                </a>
-
-                <a href="/lab">
-                    LAB
-                </a>
-
-                <a href="/system">
-                    SYSTEM
-                </a>
-
-                <a href="/contact">
-                    CONTACT
-                </a>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =====================================================
-         SMALL NAVIGATION ENHANCEMENT
-         Does NOT touch Flask or Resend.
-    ====================================================== -->
-
-    <script>
-
-        document.querySelectorAll(".service-card").forEach(card => {
-
-            card.addEventListener("keydown", event => {
-
-                if (
-                    event.key === "Enter" ||
-                    event.key === " "
-                ) {
-
-                    event.preventDefault();
-
-                    const destination =
-                        card.getAttribute("href");
-
-                    if (destination) {
-                        window.location.href = destination;
-                    }
-
-                }
-
-            });
-
-        });
-
-    </script>
-
-<script src="/static/visitor.js"></script>
-</body>
-</html>
-```
+{% endblock %}

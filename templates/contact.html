@@ -1,804 +1,344 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
-    <title>Contact — TineTech</title>
+{% block title %}Contact — TineTech{% endblock %}
+{% block description %}Tell us about your project. We reply with honest feedback, a rough timeline, and next steps.{% endblock %}
 
-    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='contact-v15.css') }}">
-</head>
+{% block content %}
 
-<body class="tt15-contact-page">
+<!-- =====================================================
+     CONTACT
+     ====================================================== -->
+<section class="tt-contact">
+    <div class="tt-container">
 
-    <!-- =====================================================
-         NAVIGATION
-    ====================================================== -->
+        <div class="tt-contact__grid">
 
-    <header class="tt15c-nav">
+            <!-- ---------- LEFT: INTRO ---------- -->
+            <div class="tt-contact__intro tt-reveal">
 
-        <a href="/" class="tt15c-logo">
-            <span>TINE</span>TECH
-        </a>
+                <span class="tt-eyebrow">Start a project</span>
 
-        <nav class="tt15c-nav-links">
-            <a href="/">HOME</a>
-            <a href="/about">ABOUT</a>
-            <a href="/lab">LAB</a>
-            <a href="/system">SYSTEM</a>
-            <a href="/contact" class="active">CONTACT</a>
-        </nav>
-
-        <a href="#contact-form" class="tt15c-nav-button">
-            START A PROJECT
-        </a>
-
-        <button class="tt15c-menu" aria-label="Open navigation">
-            <span></span>
-            <span></span>
-        </button>
-
-    </header>
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <main>
-
-        <section class="tt15c-hero">
-
-            <div class="tt15c-hero-grid"></div>
-
-            <div class="tt15c-status">
-                <span class="tt15c-status-dot"></span>
-                OPEN FOR NEW PROJECTS
-            </div>
-
-            <div class="tt15c-hero-content">
-
-                <p class="tt15c-kicker">
-                    LET'S BUILD SOMETHING
-                </p>
-
-                <h1>
-                    TURN THE<br>
-                    <span>IDEA</span> INTO<br>
-                    SOMETHING REAL.
+                <h1 class="tt-h1">
+                    Tell us what<br>
+                    you want to build.
                 </h1>
 
-                <p class="tt15c-hero-description">
-                    Have an idea, a problem to solve, or something
-                    you want to build? Tell us what you're thinking.
+                <p class="tt-lead">
+                    The more detail you give us, the more useful
+                    our first reply will be. No brief? No problem —
+                    just tell us the idea.
                 </p>
 
-                <a href="#contact-form" class="tt15c-primary-button">
-                    START THE CONVERSATION
-                    <span>↗</span>
-                </a>
+                <ul class="tt-contact__list">
+                    <li>
+                        <span>Response time</span>
+                        <strong>Within 1 business day</strong>
+                    </li>
+                    <li>
+                        <span>First step</span>
+                        <strong>A short reply with honest thoughts</strong>
+                    </li>
+                    <li>
+                        <span>What we'll send</span>
+                        <strong>Rough timeline, next steps, and a quote</strong>
+                    </li>
+                </ul>
 
             </div>
 
-            <div class="tt15c-hero-side">
 
-                <div class="tt15c-side-line"></div>
+            <!-- ---------- RIGHT: FORM ---------- -->
+            <div class="tt-contact__form-wrap tt-reveal">
 
-                <p>
-                    YOUR IDEA<br>
-                    STARTS HERE.
-                </p>
+                <form
+                    class="tt-form"
+                    id="tt15ContactForm"
+                    autocomplete="off"
+                >
+
+                    <div class="tt-form__row">
+
+                        <div class="tt-field">
+                            <label for="name">Your name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="tt-field">
+                            <label for="email">Your email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="tt-field">
+                        <label for="project">What do you want to build?</label>
+                        <select id="project" name="project" required>
+                            <option value="" selected disabled>
+                                Select a project type
+                            </option>
+                            <option value="Website / Web Experience">
+                                Website / Web Experience
+                            </option>
+                            <option value="Business / Digital Product">
+                                Business / Digital Product
+                            </option>
+                            <option value="AI / Automation">
+                                AI / Automation
+                            </option>
+                            <option value="Design / Branding">
+                                Design / Branding
+                            </option>
+                            <option value="Other">
+                                Something Else
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="tt-field">
+                        <label for="message">Tell us about it</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="7"
+                            maxlength="5000"
+                            placeholder="Describe your idea, problem, or project..."
+                            required
+                        ></textarea>
+                    </div>
+
+
+                    <div class="tt-form__actions">
+
+                        <p class="tt-form__note">
+                            No perfect brief required.<br>
+                            Just send the idea.
+                        </p>
+
+                        <button
+                            type="submit"
+                            class="tt-form__submit"
+                            id="tt15SubmitButton"
+                        >
+                            <span class="tt15-submit-text">Send message</span>
+                            <span class="tt15-submit-arrow">→</span>
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="tt-form__message"
+                        id="tt15FormMessage"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
 
             </div>
 
-            <div class="tt15c-scroll">
+        </div>
 
-                <span>SCROLL</span>
-
-                <div></div>
-
-            </div>
-
-        </section>
+    </div>
+</section>
 
 
-        <!-- =====================================================
-             INTRO
-        ====================================================== -->
+<!-- =====================================================
+     WHAT HAPPENS NEXT
+     ====================================================== -->
+<section class="tt-section tt-section--alt">
+    <div class="tt-container">
 
-        <section class="tt15c-intro">
-
-            <div class="tt15c-section-label">
-                <span>01</span>
-                CONTACT
-            </div>
-
-            <div class="tt15c-intro-content">
-
-                <p class="tt15c-large-text">
-                    GREAT PROJECTS DON'T START
-                    WITH PERFECT ANSWERS.
-                </p>
-
-                <p class="tt15c-body-text">
-                    They start with a conversation. Tell us where
-                    you want to go and we'll help figure out how
-                    to get there.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CONTACT FORM
-        ====================================================== -->
-
-        <section class="tt15c-contact-section" id="contact-form">
-
-            <div class="tt15c-contact-heading">
-
-                <div class="tt15c-section-label">
-                    <span>02</span>
-                    START HERE
-                </div>
-
-                <h2>
-                    WHAT ARE WE<br>
-                    <span>BUILDING?</span>
+        <div class="tt-head tt-reveal">
+            <div>
+                <span class="tt-eyebrow">What happens next</span>
+                <h2 class="tt-h2">
+                    Three simple steps.
                 </h2>
-
-                <p>
-                    Fill in the details below.
-                    Keep it simple. We'll take it from there.
+            </div>
+            <div class="tt-head__right">
+                <p class="tt-text">
+                    No pushy sales calls. No complicated discovery
+                    process. Just an honest conversation about
+                    whether we're a fit.
                 </p>
-
             </div>
+        </div>
 
+        <div class="tt-process tt-reveal">
 
-            <form
-                class="tt15c-form"
-                id="tt15ContactForm"
-                autocomplete="off"
-            >
-
-                <!-- NAME + EMAIL -->
-
-                <div class="tt15c-field-row">
-
-                    <div class="tt15c-field">
-
-                        <label for="name">
-                            YOUR NAME
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Enter your name"
-                            maxlength="100"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="tt15c-field">
-
-                        <label for="email">
-                            YOUR EMAIL
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            maxlength="150"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <!-- PROJECT -->
-
-                <div class="tt15c-field">
-
-                    <label for="project">
-                        WHAT DO YOU WANT TO BUILD?
-                    </label>
-
-                    <select
-                        id="project"
-                        name="project"
-                        required
-                    >
-
-                        <option value="" selected disabled>
-                            Select a project type
-                        </option>
-
-                        <option value="Website / Web Experience">
-                            Website / Web Experience
-                        </option>
-
-                        <option value="Business / Digital Product">
-                            Business / Digital Product
-                        </option>
-
-                        <option value="AI / Automation">
-                            AI / Automation
-                        </option>
-
-                        <option value="Design / Branding">
-                            Design / Branding
-                        </option>
-
-                        <option value="Other">
-                            Something Else
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- MESSAGE -->
-
-                <div class="tt15c-field">
-
-                    <label for="message">
-                        TELL US ABOUT IT
-                    </label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="7"
-                        maxlength="5000"
-                        placeholder="Describe your idea, problem, or project..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <!-- FORM FOOTER -->
-
-                <div class="tt15c-form-bottom">
-
-                    <p>
-                        NO PERFECT BRIEF REQUIRED.<br>
-                        JUST SEND THE IDEA.
-                    </p>
-
-                    <button
-                        type="submit"
-                        class="tt15c-submit"
-                        id="tt15SubmitButton"
-                    >
-
-                        <span class="tt15-submit-text">
-                            SEND MESSAGE
-                        </span>
-
-                        <span class="tt15-submit-arrow">
-                            ↗
-                        </span>
-
-                    </button>
-
-                </div>
-
-
-                <!-- STATUS -->
-
-                <div
-                    class="tt15c-form-message"
-                    id="tt15FormMessage"
-                    role="status"
-                    aria-live="polite"
-                ></div>
-
-            </form>
-
-        </section>
-
-
-        <!-- =====================================================
-             PRIVATE DELIVERY
-        ====================================================== -->
-
-        <section class="tt15c-direct">
-
-            <div class="tt15c-direct-label">
-                <span>03</span>
-                PRIVATE CHANNEL
-            </div>
-
-            <div class="tt15c-direct-content">
-
+            <div class="tt-process__step">
+                <span class="tt-process__num">01</span>
+                <h3>You send the idea</h3>
                 <p>
-                    YOUR MESSAGE IS DELIVERED THROUGH
-                    THE PRIVATE TINETECH SYSTEM.
+                    Use the form above. Rough is fine —
+                    we just need to understand the goal.
                 </p>
-
-                <span class="tt15c-private-status">
-                    <span></span>
-                    SECURE MESSAGE CHANNEL
-                </span>
-
             </div>
 
-        </section>
+            <div class="tt-process__step">
+                <span class="tt-process__num">02</span>
+                <h3>We reply honestly</h3>
+                <p>
+                    Within a business day. If we're a fit,
+                    we'll say so. If we're not, we'll say that too.
+                </p>
+            </div>
+
+            <div class="tt-process__step">
+                <span class="tt-process__num">03</span>
+                <h3>We plan the work</h3>
+                <p>
+                    If it makes sense, we agree on scope,
+                    timeline, and a fixed price.
+                </p>
+            </div>
+
+            <div class="tt-process__step">
+                <span class="tt-process__num">04</span>
+                <h3>We start building</h3>
+                <p>
+                    From there, it's our shared process —
+                    design, build, launch, support.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 
-        <!-- =====================================================
-             FINAL CTA
-        ====================================================== -->
+<!-- =====================================================
+     FINAL CTA
+     ====================================================== -->
+<section class="tt-cta tt-section--dark">
+    <div class="tt-container">
 
-        <section class="tt15c-final">
+        <div class="tt-reveal">
+            <span class="tt-eyebrow">Not ready to reach out?</span>
 
-            <div class="tt15c-final-glow"></div>
-
-            <p class="tt15c-final-label">
-                TINETECH / 2026
-            </p>
-
-            <h2>
-                LET'S MAKE<br>
-                <span>IT REAL.</span>
+            <h2 class="tt-h2">
+                See what we've<br>
+                built first.
             </h2>
 
-            <a
-                href="#contact-form"
-                class="tt15c-final-button"
-            >
-                START A PROJECT
-                <span>↗</span>
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="tt15c-footer">
-
-        <div class="tt15c-footer-top">
-
-            <a href="/" class="tt15c-logo">
-                <span>TINE</span>TECH
-            </a>
-
-            <p>
-                TECHNOLOGY WITH PURPOSE.
+            <p class="tt-lead" style="margin-left:auto;margin-right:auto;">
+                A few recent projects. Every one shipped on
+                time and runs today.
             </p>
 
-        </div>
-
-        <div class="tt15c-footer-bottom">
-
-            <span>
-                © 2026 TINETECH
-            </span>
-
-            <div>
-
-                <a href="/">HOME</a>
-                <a href="/about">ABOUT</a>
-                <a href="/lab">LAB</a>
-                <a href="/system">SYSTEM</a>
-                <a href="/contact">CONTACT</a>
-
+            <div class="tt-cta__actions">
+                <a href="/work" class="tt-btn tt-btn--accent">
+                    See our work
+                    <span>→</span>
+                </a>
+                <a href="/services" class="tt-btn tt-btn--ghost">
+                    See services
+                </a>
             </div>
-
         </div>
 
-    </footer>
+    </div>
+</section>
+
+{% endblock %}
 
 
-    <!-- =====================================================
-         CONTACT SYSTEM
-    ====================================================== -->
+{% block scripts %}
+<script>
+(() => {
+    "use strict";
 
-    <script>
+    /* =====================================================
+       CONTACT FORM
+       --------------------------------------------------------------------
+       FROZEN: field ids, field names, endpoint, and payload
+       are byte-identical to the original. Do not rename.
+       ===================================================== */
 
-        (() => {
+    const form   = document.getElementById("tt15ContactForm");
+    const status = document.getElementById("tt15FormMessage");
+    const submit = document.getElementById("tt15SubmitButton");
 
-            const page =
-                document.querySelector(".tt15-contact-page");
+    if (!form) return;
 
-            if (!page) return;
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
+        if (!submit) return;
 
-            /* =================================================
-               MOBILE NAVIGATION
-            ================================================= */
+        const submitText = submit.querySelector(".tt15-submit-text");
 
-            const menu =
-                page.querySelector(".tt15c-menu");
+        /* ---------- Loading state ---------- */
+        submit.disabled = true;
+        if (submitText) submitText.textContent = "Sending...";
 
-            const navLinks =
-                page.querySelector(".tt15c-nav-links");
+        if (status) {
+            status.textContent = "";
+            status.classList.remove("show", "success", "error");
+        }
 
+        /* ---------- Exact original payload ---------- */
+        const payload = {
+            name:    document.getElementById("name").value.trim(),
+            email:   document.getElementById("email").value.trim(),
+            project: document.getElementById("project").value,
+            message: document.getElementById("message").value.trim()
+        };
 
-            if (menu && navLinks) {
-
-                menu.addEventListener("click", () => {
-
-                    navLinks.classList.toggle("open");
-                    menu.classList.toggle("open");
-
-                });
-
-
-                navLinks.querySelectorAll("a").forEach(link => {
-
-                    link.addEventListener("click", () => {
-
-                        navLinks.classList.remove("open");
-                        menu.classList.remove("open");
-
-                    });
-
-                });
-
-            }
-
-
-            /* =================================================
-               SMOOTH SCROLL
-            ================================================= */
-
-            page.querySelectorAll('a[href^="#"]').forEach(link => {
-
-                link.addEventListener("click", event => {
-
-                    const target =
-                        document.querySelector(
-                            link.getAttribute("href")
-                        );
-
-                    if (!target) return;
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-                });
-
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
             });
 
+            const result = await response.json();
 
-            /* =================================================
-               REVEAL ANIMATIONS
-            ================================================= */
-
-            const revealItems =
-                page.querySelectorAll(
-                    ".tt15c-intro, " +
-                    ".tt15c-contact-heading, " +
-                    ".tt15c-form, " +
-                    ".tt15c-direct, " +
-                    ".tt15c-final"
-                );
-
-
-            const revealObserver =
-                new IntersectionObserver(
-                    entries => {
-
-                        entries.forEach(entry => {
-
-                            if (entry.isIntersecting) {
-
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-
-                                revealObserver.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        });
-
-                    },
-                    {
-                        threshold: 0.12
-                    }
-                );
-
-
-            revealItems.forEach(item => {
-
-                revealObserver.observe(item);
-
-            });
-
-
-            /* =================================================
-               INPUT FOCUS
-            ================================================= */
-
-            page.querySelectorAll(
-                "input, textarea, select"
-            ).forEach(input => {
-
-                input.addEventListener("focus", () => {
-
-                    input
-                        .closest(".tt15c-field")
-                        ?.classList.add("focused");
-
-                });
-
-
-                input.addEventListener("blur", () => {
-
-                    input
-                        .closest(".tt15c-field")
-                        ?.classList.remove("focused");
-
-                });
-
-            });
-
-
-            /* =================================================
-               CONTACT FORM
-            ================================================= */
-
-            const form =
-                document.getElementById(
-                    "tt15ContactForm"
-                );
-
-            const status =
-                document.getElementById(
-                    "tt15FormMessage"
-                );
-
-            const submitButton =
-                document.getElementById(
-                    "tt15SubmitButton"
-                );
-
-
-            if (form) {
-
-                form.addEventListener(
-                    "submit",
-                    async event => {
-
-                        event.preventDefault();
-
-
-                        if (!submitButton) return;
-
-
-                        const submitText =
-                            submitButton.querySelector(
-                                ".tt15-submit-text"
-                            );
-
-
-                        /* Loading state */
-
-                        submitButton.disabled = true;
-
-                        if (submitText) {
-                            submitText.textContent =
-                                "SENDING...";
-                        }
-
-
-                        if (status) {
-
-                            status.textContent = "";
-
-                            status.classList.remove(
-                                "show",
-                                "success",
-                                "error"
-                            );
-
-                        }
-
-
-                        const payload = {
-
-                            name:
-                                document
-                                    .getElementById("name")
-                                    .value
-                                    .trim(),
-
-                            email:
-                                document
-                                    .getElementById("email")
-                                    .value
-                                    .trim(),
-
-                            project:
-                                document
-                                    .getElementById("project")
-                                    .value,
-
-                            message:
-                                document
-                                    .getElementById("message")
-                                    .value
-                                    .trim()
-
-                        };
-
-
-                        try {
-
-                            const response =
-                                await fetch(
-                                    "/api/contact",
-                                    {
-                                        method: "POST",
-
-                                        headers: {
-                                            "Content-Type":
-                                                "application/json"
-                                        },
-
-                                        body:
-                                            JSON.stringify(
-                                                payload
-                                            )
-                                    }
-                                );
-
-
-                            const result =
-                                await response.json();
-
-
-                            if (!response.ok) {
-
-                                throw new Error(
-                                    result.error ||
-                                    "Message could not be sent."
-                                );
-
-                            }
-
-
-                            /* Success */
-
-                            form.reset();
-
-
-                            if (status) {
-
-                                status.textContent =
-                                    "MESSAGE SENT SUCCESSFULLY.";
-
-                                status.classList.add(
-                                    "show",
-                                    "success"
-                                );
-
-                            }
-
-
-                        } catch (error) {
-
-                            console.error(
-                                "TineTech Contact Error:",
-                                error
-                            );
-
-
-                            if (status) {
-
-                                status.textContent =
-                                    error.message ||
-                                    "MESSAGE FAILED. PLEASE TRY AGAIN.";
-
-                                status.classList.add(
-                                    "show",
-                                    "error"
-                                );
-
-                            }
-
-                        } finally {
-
-                            submitButton.disabled = false;
-
-                            if (submitText) {
-
-                                submitText.textContent =
-                                    "SEND MESSAGE";
-
-                            }
-
-                        }
-
-                    }
-                );
-
+            if (!response.ok) {
+                throw new Error(result.error || "Message could not be sent.");
             }
 
+            /* ---------- Success ---------- */
+            form.reset();
 
-            /* =================================================
-               HERO MOUSE EFFECT
-            ================================================= */
-
-            const hero =
-                page.querySelector(".tt15c-hero");
-
-
-            if (
-                hero &&
-                window.matchMedia(
-                    "(pointer:fine)"
-                ).matches
-            ) {
-
-                hero.addEventListener(
-                    "mousemove",
-                    event => {
-
-                        const rect =
-                            hero.getBoundingClientRect();
-
-
-                        const x =
-                            (
-                                event.clientX -
-                                rect.left
-                            ) / rect.width - 0.5;
-
-
-                        const y =
-                            (
-                                event.clientY -
-                                rect.top
-                            ) / rect.height - 0.5;
-
-
-                        hero.style.setProperty(
-                            "--mouse-x",
-                            `${x * 20}px`
-                        );
-
-
-                        hero.style.setProperty(
-                            "--mouse-y",
-                            `${y * 20}px`
-                        );
-
-                    }
-                );
-
+            if (status) {
+                status.textContent = "Message sent successfully.";
+                status.classList.add("show", "success");
             }
 
-        })();
+        } catch (error) {
+            console.error("TineTech Contact Error:", error);
 
-    </script>
-<script src="/static/visitor.js"></script>
-</body>
-</html>
+            if (status) {
+                status.textContent =
+                    error.message || "Message failed. Please try again.";
+                status.classList.add("show", "error");
+            }
+
+        } finally {
+            submit.disabled = false;
+            if (submitText) submitText.textContent = "Send message";
+        }
+    });
+
+})();
+</script>
+{% endblock %}

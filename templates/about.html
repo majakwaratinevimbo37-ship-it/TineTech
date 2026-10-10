@@ -1,648 +1,305 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
-    <title>About — TineTech</title>
-    <meta
-        name="description"
-        content="Discover the thinking, principles and people behind TineTech."
-    >
+{% block title %}About — TineTech{% endblock %}
+{% block description %}TineTech is a small web studio building websites and web apps for people who care about quality.{% endblock %}
 
-    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
+{% block content %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='about-v15.css') }}">
-</head>
+<!-- =====================================================
+     HERO
+     ====================================================== -->
+<section class="tt-hero">
+    <div class="tt-container">
+        <div class="tt-hero__grid">
 
-<body class="tt15-about">
+            <div class="tt-hero__text tt-reveal">
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================== -->
+                <span class="tt-hero__tag">
+                    <i></i>
+                    About TineTech
+                </span>
 
-    <header class="tt15a-nav" id="tt15aNav">
-
-        <a href="/" class="tt15a-logo">
-            <span class="tt15a-logo-mark">T</span>
-            <span>TineTech</span>
-        </a>
-
-        <nav class="tt15a-navigation">
-            <a href="/">HOME</a>
-            <a href="/about" class="active">ABOUT</a>
-            <a href="/lab">LAB</a>
-            <a href="/system">SYSTEM</a>
-            <a href="/contact">CONTACT</a>
-        </nav>
-
-        <a href="/contact" class="tt15a-nav-button">
-            START A PROJECT <span>↗</span>
-        </a>
-
-        <button
-            class="tt15a-menu"
-            id="tt15aMenu"
-            aria-label="Open navigation"
-        >
-            <span></span>
-            <span></span>
-        </button>
-
-    </header>
-
-
-    <main>
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
-        <section class="tt15a-hero">
-
-            <div class="tt15a-hero-meta">
-                <span>02 / ABOUT</span>
-                <span>PEOPLE × TECHNOLOGY</span>
-            </div>
-
-            <div class="tt15a-hero-title">
-
-                <div class="tt15a-small-label">
-                    THIS IS TINETECH.
-                </div>
-
-                <h1>
-                    WE ARE
-                    <span>BUILDERS.</span>
+                <h1 class="tt-h1">
+                    A small studio<br>
+                    with a simple<br>
+                    standard.
                 </h1>
 
-                <p>
-                    A technology studio focused on turning ideas,
-                    problems and possibilities into useful digital
-                    experiences.
+                <p class="tt-lead">
+                    We build websites and web apps the way we'd
+                    want them built for us: fast, clean, honest,
+                    and made to last.
                 </p>
 
-            </div>
-
-            <div class="tt15a-hero-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2200&q=90"
-                    alt="Team collaborating around a table"
-                >
-
-                <div class="tt15a-image-label">
-                    <span>PEOPLE BEHIND THE PRODUCT</span>
-                    <strong>BUILT TOGETHER.</strong>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             MANIFESTO
-        ====================================================== -->
-
-        <section class="tt15a-manifesto">
-
-            <div class="tt15a-section-label">
-                01 / OUR BELIEF
-            </div>
-
-            <div class="tt15a-manifesto-content">
-
-                <h2>
-                    TECHNOLOGY
-                    <span>IS A TOOL.</span>
-                </h2>
-
-                <div class="tt15a-manifesto-copy">
-
-                    <p>
-                        The technology itself is never the whole
-                        story. What matters is what it allows people
-                        to do.
-                    </p>
-
-                    <p>
-                        That's why we care about clarity, usability,
-                        design and the experience surrounding every
-                        system we build.
-                    </p>
-
-                    <a href="/lab" class="tt15a-arrow-link">
-                        SEE OUR LAB
-                        <span>↗</span>
+                <div class="tt-hero__actions">
+                    <a href="/contact" class="tt-btn tt-btn--primary">
+                        Start a project
+                        <span>→</span>
                     </a>
-
+                    <a href="/work" class="tt-btn tt-btn--ghost">
+                        See our work
+                    </a>
                 </div>
 
             </div>
 
-        </section>
-
-
-        <!-- =====================================================
-             BIG STATEMENT
-        ====================================================== -->
-
-        <section class="tt15a-statement">
-
-            <div class="tt15a-statement-number">
-                02
-            </div>
-
-            <h2>
-                MAKE IT
-                <span>SIMPLE.</span>
-                MAKE IT
-                <span>USEFUL.</span>
-            </h2>
-
-            <div class="tt15a-statement-line"></div>
-
-        </section>
-
-
-        <!-- =====================================================
-             IMAGE STORY
-        ====================================================== -->
-
-        <section class="tt15a-story">
-
-            <div class="tt15a-story-image">
-
+            <div class="tt-hero__visual tt-reveal">
                 <img
-                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=90"
-                    alt="People working together"
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
+                    alt="Working at a desk"
+                    loading="eager"
                 >
-
-                <span>COLLABORATION / 001</span>
-
+                <div class="tt-hero__float tt-hero__float--a">
+                    <small>Studio</small>
+                    Small &amp; focused
+                </div>
+                <div class="tt-hero__float tt-hero__float--b">
+                    <small>Standard</small>
+                    Quality over volume
+                </div>
             </div>
 
-            <div class="tt15a-story-copy">
+        </div>
+    </div>
+</section>
 
-                <span class="tt15a-section-label">
-                    03 / HOW WE THINK
-                </span>
 
-                <h2>
-                    START WITH
-                    <span>THE PROBLEM.</span>
+<!-- =====================================================
+     STORY
+     ====================================================== -->
+<section class="tt-section">
+    <div class="tt-container">
+
+        <div class="tt-head tt-reveal">
+            <div>
+                <span class="tt-eyebrow">The story</span>
+                <h2 class="tt-h2">
+                    Why this exists.
                 </h2>
+            </div>
+            <div class="tt-head__right">
+                <p class="tt-text">
+                    TineTech started because good websites are
+                    still surprisingly rare.
+                </p>
+            </div>
+        </div>
 
-                <p>
-                    Before we think about frameworks, interfaces or
-                    features, we ask a much simpler question:
-                    what actually needs to be solved?
+        <div class="tt-about-grid tt-reveal">
+
+            <div class="tt-about-text">
+                <p class="tt-text">
+                    Too many businesses are stuck with slow,
+                    bloated sites that cost too much to update
+                    and do too little to actually help. Or
+                    they're sold a web app that solves the wrong
+                    problem.
                 </p>
 
-                <p>
-                    That approach keeps our work focused on people
-                    instead of technology for technology's sake.
+                <p class="tt-text">
+                    We started TineTech to do the opposite:
+                    small, focused work — designed properly,
+                    built cleanly, delivered on time.
                 </p>
 
-                <div class="tt15a-numbered-point">
-                    <strong>01</strong>
-                    <span>UNDERSTAND FIRST.</span>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PRINCIPLES
-        ====================================================== -->
-
-        <section class="tt15a-principles">
-
-            <div class="tt15a-principles-head">
-
-                <span class="tt15a-section-label">
-                    04 / PRINCIPLES
-                </span>
-
-                <h2>
-                    HOW WE
-                    <span>WORK.</span>
-                </h2>
-
-            </div>
-
-            <div class="tt15a-principles-grid">
-
-                <article class="tt15a-principle">
-
-                    <div class="tt15a-principle-top">
-                        <span>01</span>
-                        <span>↗</span>
-                    </div>
-
-                    <h3>CLARITY</h3>
-
-                    <p>
-                        Remove unnecessary complexity and make
-                        every interaction understandable.
-                    </p>
-
-                </article>
-
-
-                <article class="tt15a-principle">
-
-                    <div class="tt15a-principle-top">
-                        <span>02</span>
-                        <span>↗</span>
-                    </div>
-
-                    <h3>CRAFT</h3>
-
-                    <p>
-                        Small details matter. We aim for work that
-                        feels considered from every angle.
-                    </p>
-
-                </article>
-
-
-                <article class="tt15a-principle">
-
-                    <div class="tt15a-principle-top">
-                        <span>03</span>
-                        <span>↗</span>
-                    </div>
-
-                    <h3>CURIOSITY</h3>
-
-                    <p>
-                        We explore new tools and ideas because the
-                        best solution isn't always the obvious one.
-                    </p>
-
-                </article>
-
-
-                <article class="tt15a-principle">
-
-                    <div class="tt15a-principle-top">
-                        <span>04</span>
-                        <span>↗</span>
-                    </div>
-
-                    <h3>IMPACT</h3>
-
-                    <p>
-                        A beautiful product means little if it doesn't
-                        create meaningful value for the people using it.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             NUMBERS
-        ====================================================== -->
-
-        <section class="tt15a-numbers">
-
-            <div class="tt15a-numbers-heading">
-                <span class="tt15a-section-label">
-                    05 / THE MINDSET
-                </span>
-
-                <h2>
-                    ALWAYS
-                    <span>EVOLVING.</span>
-                </h2>
-            </div>
-
-            <div class="tt15a-number-grid">
-
-                <div class="tt15a-number-card">
-                    <strong>01</strong>
-                    <span>THINK</span>
-                    <p>Question the obvious.</p>
-                </div>
-
-                <div class="tt15a-number-card">
-                    <strong>02</strong>
-                    <span>BUILD</span>
-                    <p>Make the idea tangible.</p>
-                </div>
-
-                <div class="tt15a-number-card">
-                    <strong>03</strong>
-                    <span>TEST</span>
-                    <p>Find what doesn't work.</p>
-                </div>
-
-                <div class="tt15a-number-card">
-                    <strong>04</strong>
-                    <span>EVOLVE</span>
-                    <p>Make the next version better.</p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             LAB TRANSITION
-        ====================================================== -->
-
-        <section class="tt15a-lab-transition">
-
-            <div class="tt15a-lab-orbit">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <div class="tt15a-lab-content">
-
-                <span class="tt15a-section-label">
-                    06 / NEXT
-                </span>
-
-                <h2>
-                    WE DON'T
-                    <span>STOP HERE.</span>
-                </h2>
-
-                <p>
-                    Ideas become experiments. Experiments become
-                    systems. That's where the TineTech Lab begins.
+                <p class="tt-text">
+                    No jargon. No inflated scope. No surprise
+                    invoices. Just a studio that treats your
+                    project like it matters.
                 </p>
-
-                <a href="/lab" class="tt15a-lab-button">
-                    ENTER THE LAB
-                    <span>↗</span>
-                </a>
-
             </div>
 
-        </section>
+            <aside class="tt-about-facts">
+                <div class="tt-about-fact">
+                    <strong>100%</strong>
+                    <span>Projects delivered on time</span>
+                </div>
+                <div class="tt-about-fact">
+                    <strong>2</strong>
+                    <span>Services done really well</span>
+                </div>
+                <div class="tt-about-fact">
+                    <strong>1</strong>
+                    <span>Person you actually talk to</span>
+                </div>
+            </aside>
+
+        </div>
+
+    </div>
+</section>
 
 
-        <!-- =====================================================
-             FINAL CTA
-        ====================================================== -->
+<!-- =====================================================
+     PRINCIPLES
+     ====================================================== -->
+<section class="tt-section tt-section--alt">
+    <div class="tt-container">
 
-        <section class="tt15a-final">
+        <div class="tt-head tt-reveal">
+            <div>
+                <span class="tt-eyebrow">How we think</span>
+                <h2 class="tt-h2">
+                    Four principles.<br>
+                    No exceptions.
+                </h2>
+            </div>
+            <div class="tt-head__right">
+                <p class="tt-text">
+                    These aren't slogans. They're the filter
+                    we run every decision through.
+                </p>
+            </div>
+        </div>
 
-            <span class="tt15a-section-label">
-                07 / WORK WITH US
-            </span>
+        <div class="tt-services">
 
-            <h2>
-                HAVE AN
-                <span>IDEA?</span>
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">01</div>
+                <h3>Clarity over cleverness</h3>
+                <p>
+                    Simple beats complicated. Every time.
+                    If a feature doesn't help the user, it
+                    doesn't ship.
+                </p>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">02</div>
+                <h3>Speed is a feature</h3>
+                <p>
+                    Fast sites convert better, rank better,
+                    and respect people's time. We treat
+                    performance as non-negotiable.
+                </p>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">03</div>
+                <h3>Say it straight</h3>
+                <p>
+                    Honest timelines. Honest pricing. If
+                    something's not a fit, we'll tell you
+                    rather than take the work.
+                </p>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">04</div>
+                <h3>Built to last</h3>
+                <p>
+                    Clean code, modern tools, no lock-in.
+                    Your site should be easier to maintain
+                    in two years, not harder.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     WHAT WE DON'T DO
+     ====================================================== -->
+<section class="tt-section">
+    <div class="tt-container">
+
+        <div class="tt-head tt-reveal">
+            <div>
+                <span class="tt-eyebrow">Honest fit</span>
+                <h2 class="tt-h2">
+                    What we don't do.
+                </h2>
+            </div>
+            <div class="tt-head__right">
+                <p class="tt-text">
+                    Knowing what to say no to is just as
+                    important as knowing what to build.
+                </p>
+            </div>
+        </div>
+
+        <div class="tt-services">
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">×</div>
+                <h3>Cheap template sites</h3>
+                <p>
+                    We build custom, not from a theme. If you
+                    want something quick and generic, there are
+                    better options than us.
+                </p>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">×</div>
+                <h3>Vague retainers</h3>
+                <p>
+                    No monthly fees for unclear work. You pay
+                    for defined projects, or defined support —
+                    never for "hours."
+                </p>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">×</div>
+                <h3>Rushing to ship</h3>
+                <p>
+                    If a deadline forces sloppy work, we'd
+                    rather reset the timeline than hand you
+                    something we're not proud of.
+                </p>
+            </article>
+
+            <article class="tt-service tt-reveal">
+                <div class="tt-service__icon">×</div>
+                <h3>Locking you in</h3>
+                <p>
+                    Your code, your data, your accounts. We
+                    set things up so you're never dependent
+                    on us to stay online.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+     ====================================================== -->
+<section class="tt-cta tt-section--dark">
+    <div class="tt-container">
+
+        <div class="tt-reveal">
+            <span class="tt-eyebrow">Next</span>
+
+            <h2 class="tt-h2">
+                If we sound<br>
+                like a fit, say hi.
             </h2>
 
-            <p>
-                Let's see what we can build with it.
+            <p class="tt-lead" style="margin-left:auto;margin-right:auto;">
+                Tell us about your project. We'll reply
+                with honest feedback and next steps.
             </p>
 
-            <a href="/contact" class="tt15a-final-button">
-                START A PROJECT
-                <span>↗</span>
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer class="tt15a-footer">
-
-        <div class="tt15a-footer-main">
-
-            <a href="/" class="tt15a-logo">
-                <span class="tt15a-logo-mark">T</span>
-                <span>TineTech</span>
-            </a>
-
-            <p>
-                BUILDING DIGITAL<br>
-                EXPERIENCES WITH PURPOSE.
-            </p>
-
-        </div>
-
-        <div class="tt15a-footer-bottom">
-
-            <span>© 2026 TineTech</span>
-
-            <div>
-                <a href="/">HOME</a>
-                <a href="/lab">LAB</a>
-                <a href="/system">SYSTEM</a>
-                <a href="/contact">CONTACT</a>
+            <div class="tt-cta__actions">
+                <a href="/contact" class="tt-btn tt-btn--accent">
+                    Get in touch
+                    <span>→</span>
+                </a>
+                <a href="/services" class="tt-btn tt-btn--ghost">
+                    See services
+                </a>
             </div>
-
-            <span>HARARE / ZIMBABWE</span>
-
         </div>
 
-    </footer>
+    </div>
+</section>
 
-
-    <!-- =========================================================
-         ABOUT INTERACTIONS
-    ========================================================== -->
-
-    <script>
-        (() => {
-
-            const nav = document.getElementById("tt15aNav");
-            const menu = document.getElementById("tt15aMenu");
-            const navigation = document.querySelector(".tt15a-navigation");
-
-            /* Navigation */
-
-            const updateNavigation = () => {
-                if (!nav) return;
-
-                nav.classList.toggle(
-                    "tt15a-nav-scrolled",
-                    window.scrollY > 35
-                );
-            };
-
-            window.addEventListener(
-                "scroll",
-                updateNavigation,
-                { passive: true }
-            );
-
-            updateNavigation();
-
-
-            /* Mobile menu */
-
-            if (menu && navigation) {
-
-                menu.addEventListener("click", () => {
-
-                    navigation.classList.toggle(
-                        "tt15a-navigation-open"
-                    );
-
-                    menu.classList.toggle(
-                        "tt15a-menu-open"
-                    );
-
-                });
-
-                navigation.querySelectorAll("a").forEach(link => {
-
-                    link.addEventListener("click", () => {
-
-                        navigation.classList.remove(
-                            "tt15a-navigation-open"
-                        );
-
-                        menu.classList.remove(
-                            "tt15a-menu-open"
-                        );
-
-                    });
-
-                });
-
-            }
-
-
-            /* Reveal */
-
-            const revealItems = document.querySelectorAll(
-                ".tt15a-manifesto-content, " +
-                ".tt15a-story-copy, " +
-                ".tt15a-principle, " +
-                ".tt15a-number-card, " +
-                ".tt15a-lab-content, " +
-                ".tt15a-final"
-            );
-
-            if ("IntersectionObserver" in window) {
-
-                const observer = new IntersectionObserver(
-                    entries => {
-
-                        entries.forEach(entry => {
-
-                            if (entry.isIntersecting) {
-
-                                entry.target.classList.add(
-                                    "tt15a-visible"
-                                );
-
-                                observer.unobserve(entry.target);
-
-                            }
-
-                        });
-
-                    },
-                    {
-                        threshold: 0.12
-                    }
-                );
-
-                revealItems.forEach(item => {
-                    observer.observe(item);
-                });
-
-            } else {
-
-                revealItems.forEach(item => {
-                    item.classList.add("tt15a-visible");
-                });
-
-            }
-
-
-            /* Principle hover */
-
-            document
-                .querySelectorAll(".tt15a-principle")
-                .forEach(card => {
-
-                    card.addEventListener("mouseenter", () => {
-
-                        document
-                            .querySelectorAll(".tt15a-principle")
-                            .forEach(other => {
-                                other.classList.remove(
-                                    "tt15a-principle-active"
-                                );
-                            });
-
-                        card.classList.add(
-                            "tt15a-principle-active"
-                        );
-
-                    });
-
-                });
-
-
-            /* Hero mouse movement */
-
-            const heroImage =
-                document.querySelector(".tt15a-hero-image img");
-
-            const hero =
-                document.querySelector(".tt15a-hero");
-
-            if (
-                hero &&
-                heroImage &&
-                window.matchMedia("(pointer:fine)").matches
-            ) {
-
-                hero.addEventListener("mousemove", event => {
-
-                    const rect =
-                        hero.getBoundingClientRect();
-
-                    const x =
-                        ((event.clientX - rect.left) / rect.width - 0.5);
-
-                    const y =
-                        ((event.clientY - rect.top) / rect.height - 0.5);
-
-                    heroImage.style.transform =
-                        `scale(1.04) translate(${x * 7}px, ${y * 7}px)`;
-
-                });
-
-                hero.addEventListener("mouseleave", () => {
-
-                    heroImage.style.transform =
-                        "scale(1) translate(0, 0)";
-
-                });
-
-            }
-
-        })();
-    </script>
-<script src="/static/visitor.js"></script>
-</body>
-</html>
+{% endblock %}

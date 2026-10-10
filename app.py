@@ -121,14 +121,14 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/lab")
-def lab():
-    return render_template("lab.html")
+@app.route("/services")
+def services():
+    return render_template("services.html")
 
 
-@app.route("/system")
-def system():
-    return render_template("system.html")
+@app.route("/work")
+def work():
+    return render_template("work.html")
 
 
 @app.route("/contact")
