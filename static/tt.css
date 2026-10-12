@@ -1476,4 +1476,99 @@ h1, h2, h3, h4 {
         scroll-behavior: auto !important;
     }
     .tt-reveal { opacity: 1; transform: none; }
+}/* ---------- TESTIMONIALS ---------- */
+
+.tt-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tt-quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 26px;
+    padding: 34px 30px;
+    background: var(--tt-white);
+    border: 1px solid var(--tt-line);
+    border-radius: var(--tt-radius-lg);
+    transition: transform var(--tt-med), box-shadow var(--tt-med), border-color var(--tt-fast);
+    position: relative;
+}
+
+.tt-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: 18px;
+    right: 26px;
+    font-size: 68px;
+    line-height: 1;
+    font-family: Georgia, serif;
+    color: rgba(0,102,255,.14);
+    pointer-events: none;
+}
+
+.tt-quote:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.14);
+    border-color: rgba(0,102,255,.35);
+}
+
+.tt-quote__text {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--tt-text);
+    letter-spacing: -.01em;
+    position: relative;
+    z-index: 1;
+}
+
+.tt-quote__foot {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 22px;
+    border-top: 1px solid var(--tt-line);
+}
+
+.tt-quote__avatar {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(0,102,255,.1);
+    color: var(--tt-accent);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+}
+
+.tt-quote__foot > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.tt-quote__name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--tt-text);
+    letter-spacing: -.01em;
+}
+
+.tt-quote__role {
+    font-size: 13px;
+    color: var(--tt-text-mute);
+    line-height: 1.4;
+}
+
+/* Auto-hide the whole section if there are no testimonials */
+
+.tt-testimonials:not(:has(.tt-quote)) {
+    display: none;
 }

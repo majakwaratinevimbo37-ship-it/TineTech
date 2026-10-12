@@ -1,39 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-
-    <rect
-        width="512"
-        height="512"
-        rx="110"
-        fill="#030303"
-    />
-
-    <circle
-        cx="256"
-        cy="256"
-        r="190"
-        fill="none"
-        stroke="#ffffff"
-        stroke-width="4"
-        opacity="0.25"
-    />
-
-    <text
-        x="256"
-        y="325"
-        text-anchor="middle"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="230"
-        font-weight="900"
-        fill="#ffffff"
-    >
-        T
-    </text>
-
-    <circle
-        cx="410"
-        cy="105"
-        r="14"
-        fill="#ffffff"
-    />
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <defs>
+        <linearGradient id="ttg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0066ff"/>
+            <stop offset="100%" stop-color="#0052cc"/>
+        </linearGradient>
+    </defs>
+    <rect width="64" height="64" rx="14" fill="#0a0a0a"/>
+    <rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="url(#ttg)" stroke-width="1" opacity="0.55"/>
+    <path d="M18 20 H46 V26 H36 V48 H28 V26 H18 Z" fill="#ffffff"/>
+    <circle cx="50" cy="14" r="3" fill="#0066ff"/>
 </svg>

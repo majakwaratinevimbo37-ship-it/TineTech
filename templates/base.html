@@ -7,7 +7,27 @@
     <title>{% block title %}TineTech — Websites & Web Apps{% endblock %}</title>
     <meta name="description" content="{% block description %}TineTech builds websites and web apps that move businesses forward.{% endblock %}">
 
-    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon.svg') }}">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TineTech">
+    <meta property="og:title" content="{% block og_title %}TineTech — Websites & Web Apps{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Fast, clean digital products for growing businesses.{% endblock %}">
+    <meta property="og:image" content="{{ url_for('static', filename='og-image.svg', _external=True) }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="{{ request.url }}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block tw_title %}TineTech — Websites & Web Apps{% endblock %}">
+    <meta name="twitter:description" content="{% block tw_description %}Fast, clean digital products for growing businesses.{% endblock %}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='og-image.svg', _external=True) }}">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='tt.css') }}">
     {% block head_extra %}{% endblock %}
 </head>
