@@ -136,6 +136,11 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/start")
+def start():
+    return render_template("start.html")
+
+
 # =========================================================
 # CONTACT / RESEND SYSTEM
 # =========================================================

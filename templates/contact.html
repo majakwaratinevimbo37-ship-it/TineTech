@@ -267,10 +267,39 @@
     "use strict";
 
     /* =====================================================
-       CONTACT FORM
-       --------------------------------------------------------------------
-       FROZEN: field ids, field names, endpoint, and payload
-       are byte-identical to the original. Do not rename.
+       QUALIFIER PREFILL
+       -----------------------------------------------------
+       Runs BEFORE anything else so the message field is
+       ready if the visitor came from /start. Does NOT
+       touch the contact API or form submission flow.
+       ===================================================== */
+
+    const messageField = document.getElementById("message");
+
+    if (messageField) {
+        try {
+            const prefill = sessionStorage.getItem("tt_qualifier_message");
+
+            if (prefill) {
+                messageField.value = prefill;
+                sessionStorage.removeItem("tt_qualifier_message");
+
+                setTimeout(() => {
+                    messageField.focus();
+                    messageField.selectionStart = messageField.value.length;
+                }, 400);
+            }
+        } catch (e) {
+            /* sessionStorage unavailable — silently ignore */
+        }
+    }
+
+
+    /* =====================================================
+       CONTACT FORM — FROZEN
+       -----------------------------------------------------
+       Same ids, same names, same endpoint, same payload,
+       same loading/success/error flow. Do not rename.
        ===================================================== */
 
     const form   = document.getElementById("tt15ContactForm");
