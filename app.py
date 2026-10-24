@@ -266,11 +266,12 @@ def insight_post(slug):
 
 
 # =========================================================
-# SEO ROUTES (robots.txt & sitemap.xml)
+# SEO & VERIFICATION ROUTES
 # =========================================================
 
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')
+@app.route('/googleaa24a38f9b2563e2.html')
 def static_from_root():
     return send_from_directory(app.static_folder, request.path[1:])
 
