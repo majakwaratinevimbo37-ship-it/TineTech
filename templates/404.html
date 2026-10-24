@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Not found — TineTech{% endblock %}
+{% block description %}That page doesn't exist. Let's get you back on track.{% endblock %}
+
+{% block content %}
+
+<section class="tt-hero" style="min-height: 70vh;">
+    <div class="tt-container">
+        <div class="tt-hero__grid">
+
+            <div class="tt-hero__text tt-reveal">
+
+                <span class="tt-hero__tag">
+                    <i></i>
+                    404
+                </span>
+
+                <h1 class="tt-h1">
+                    That page<br>
+                    doesn't exist.
+                </h1>
+
+                <p class="tt-lead">
+                    It might have moved, or the link might be
+                    out of date. Either way — here's where to go next.
+                </p>
+
+                <div class="tt-hero__actions">
+                    <a href="/" class="tt-btn tt-btn--primary">
+                        Back to home
+                        <span>→</span>
+                    </a>
+                    <a href="/contact" class="tt-btn tt-btn--ghost">
+                        Get in touch
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

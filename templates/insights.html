@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Insights — TineTech{% endblock %}
+{% block description %}Thoughts, guides, and lessons on building websites and web apps that actually work.{% endblock %}
+
+{% block content %}
+
+<section class="tt-hero">
+    <div class="tt-container">
+        <div class="tt-hero__grid">
+
+            <div class="tt-hero__text tt-reveal">
+
+                <span class="tt-hero__tag">
+                    <i></i>
+                    Insights
+                </span>
+
+                <h1 class="tt-h1">
+                    Thoughts on<br>
+                    building better<br>
+                    digital products.
+                </h1>
+
+                <p class="tt-lead">
+                    Practical articles on websites, pricing,
+                    and what actually moves the needle. No fluff.
+                </p>
+
+            </div>
+
+            <div class="tt-hero__visual tt-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80"
+                    alt="Writing and research"
+                    loading="eager"
+                >
+                <div class="tt-hero__float tt-hero__float--a">
+                    <small>Posts</small>
+                    {{ posts|length }} published
+                </div>
+                <div class="tt-hero__float tt-hero__float--b">
+                    <small>Updated</small>
+                    Regularly
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="tt-section">
+    <div class="tt-container">
+
+        {% if posts %}
+
+            <div class="tt-head tt-reveal">
+                <div>
+                    <span class="tt-eyebrow">All posts</span>
+                    <h2 class="tt-h2">
+                        Read, learn,<br>
+                        then build.
+                    </h2>
+                </div>
+                <div class="tt-head__right">
+                    <p class="tt-text">
+                        Written by the person who'll actually
+                        build your project. No ghostwriters,
+                        no generic advice.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tt-posts tt-reveal">
+
+                {% for post in posts %}
+                <a href="/insights/{{ post.slug }}" class="tt-post-link">
+
+                    <article class="tt-post-card">
+
+                        <div class="tt-post-card__meta">
+                            {% if post.tag %}
+                            <span class="tt-post-card__tag">{{ post.tag }}</span>
+                            {% endif %}
+                            <span class="tt-post-card__date">
+                                {{ post.date }}
+                            </span>
+                        </div>
+
+                        <h3 class="tt-post-card__title">
+                            {{ post.title }}
+                        </h3>
+
+                        <p class="tt-post-card__excerpt">
+                            {{ post.excerpt }}
+                        </p>
+
+                        <span class="tt-post-card__cta">
+                            Read post
+                            <span>→</span>
+                        </span>
+
+                    </article>
+
+                </a>
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="tt-empty">
+                <h2 class="tt-h3">Nothing published yet.</h2>
+                <p class="tt-text">
+                    First article is in the works. Check back soon.
+                </p>
+                <a href="/" class="tt-btn tt-btn--primary" style="margin-top:24px;">
+                    Back to home
+                </a>
+            </div>
+
+        {% endif %}
+
+    </div>
+</section>
+
+
+<section class="tt-cta tt-section--dark">
+    <div class="tt-container">
+
+        <div class="tt-reveal">
+            <span class="tt-eyebrow">Ready to build</span>
+
+            <h2 class="tt-h2">
+                Reading is good.<br>
+                Building is better.
+            </h2>
+
+            <p class="tt-lead" style="margin-left:auto;margin-right:auto;">
+                Tell us what you're thinking. We'll reply
+                with honest feedback and next steps.
+            </p>
+
+            <div class="tt-cta__actions">
+                <a href="/start" class="tt-btn tt-btn--accent">
+                    Start a project
+                    <span>→</span>
+                </a>
+                <a href="/services" class="tt-btn tt-btn--ghost">
+                    See services
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

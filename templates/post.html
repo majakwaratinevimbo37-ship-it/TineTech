@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} — TineTech{% endblock %}
+{% block description %}{{ post.excerpt }}{% endblock %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.excerpt }}{% endblock %}
+{% block tw_title %}{{ post.title }}{% endblock %}
+{% block tw_description %}{{ post.excerpt }}{% endblock %}
+
+{% block content %}
+
+<article class="tt-post">
+
+    <header class="tt-post__header">
+        <div class="tt-container tt-container--narrow">
+
+            <a href="/insights" class="tt-post__back">
+                ← All insights
+            </a>
+
+            <div class="tt-post__meta">
+                {% if post.tag %}
+                <span class="tt-post__tag">{{ post.tag }}</span>
+                {% endif %}
+                <span class="tt-post__date">{{ post.date }}</span>
+            </div>
+
+            <h1 class="tt-post__title">
+                {{ post.title }}
+            </h1>
+
+            <p class="tt-post__excerpt">
+                {{ post.excerpt }}
+            </p>
+
+        </div>
+    </header>
+
+
+    <div class="tt-post__body">
+        <div class="tt-container tt-container--narrow">
+
+            {% for block in post.body %}
+
+                {% if block.type == "p" %}
+                    <p>{{ block.text }}</p>
+
+                {% elif block.type == "h2" %}
+                    <h2>{{ block.text }}</h2>
+
+                {% elif block.type == "list" %}
+                    <ul>
+                        {% for item in block["items"] %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+
+                {% elif block.type == "quote" %}
+                    <blockquote>{{ block.text }}</blockquote>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+    <footer class="tt-post__foot">
+        <div class="tt-container tt-container--narrow">
+
+            <div class="tt-post__foot-inner">
+
+                <div>
+                    <span class="tt-eyebrow">Want to talk?</span>
+                    <h2 class="tt-h3" style="margin-top:12px;">
+                        Have a project like this?
+                    </h2>
+                </div>
+
+                <a href="/start" class="tt-btn tt-btn--primary">
+                    Start a project
+                    <span>→</span>
+                </a>
+
+            </div>
+
+            <a href="/insights" class="tt-post__back tt-post__back--foot">
+                ← Back to all insights
+            </a>
+
+        </div>
+    </footer>
+
+</article>
+
+{% endblock %}
